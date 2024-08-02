@@ -23,8 +23,7 @@ $conn->select_db('travelapp');
 
 $sql = "CREATE TABLE IF NOT EXISTS trips (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    travel_time TIME NOT NULL
+    title VARCHAR(255) NOT NULL
     
     )";
 
@@ -53,9 +52,11 @@ if ($conn->query($sql) === TRUE) {
 
 $sql = "CREATE TABLE IF NOT EXISTS hotels (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  city_id INT UNSIGNED NOT NULL,
   name VARCHAR(255) NOT NULL,
   address VARCHAR(255) NOT NULL,
-  image VARCHAR(255) NOT NULL
+  image VARCHAR(255) NOT NULL,
+  FOREIGN KEY (city_id) REFERENCES cities(id) ON DELETE CASCADE
   
   )";
 
@@ -65,7 +66,7 @@ if ($conn->query($sql) === TRUE) {
   echo "Error creating table: " . $conn->error;
 }
 
-$sql = "CREATE TABLE IF NOT EXISTS stops (
+$sql = "CREATE TABLE IF NOT EXISTS days (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   trip_id INT UNSIGNED NOT NULL,
   city_id INT UNSIGNED NOT NULL,
@@ -75,9 +76,9 @@ $sql = "CREATE TABLE IF NOT EXISTS stops (
 )";
 
 if ($conn->query($sql) === TRUE) {
-  echo "Tabella di giunzione trip_cities creata con successo<br>";
+  echo "Tabella di giunzione days creata con successo<br>";
 } else {
-  echo "Errore nella creazione della tabella di giunzione trip_cities: " . $conn->error . "<br>";
+  echo "Errore nella creazione della tabella di giunzione days: " . $conn->error . "<br>";
 }
 
 $conn->close();
