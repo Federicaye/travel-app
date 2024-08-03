@@ -47,3 +47,34 @@ if ($uploadOk == 0) {
   }
 }
 
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "travelapp";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+//insert data
+if(isset($_POST['submit'])) {	
+	$title = $_POST['title'];
+	$description = $_POST['description'];
+	$image = $target_file;
+}
+
+$sql = "INSERT INTO trips (title, description, image)
+VALUES ($title, $description, $image)";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+  
+  $conn->close();
+
+var_dump($image);
