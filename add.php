@@ -32,17 +32,17 @@ if (isset($_POST["submit"])) {
 
   $title = $_POST['title'];
   $description = $_POST['description'];
-  $image = $target_file;
+  $image = 'ciao';
 
 
   $sql = "INSERT INTO trips ( title, description, image)
   VALUES ($title, $description, $image)";
 
-    /* if ($conn->query($sql) === TRUE) {
+    if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
-  } */
+  } 
    
   $conn->close(); 
 }

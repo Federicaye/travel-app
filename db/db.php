@@ -82,4 +82,3 @@ if ($conn->query($sql) === TRUE) {
   echo "Errore nella creazione della tabella di giunzione days: " . $conn->error . "<br>";
 }
 
-$conn->close();
