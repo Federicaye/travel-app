@@ -19,6 +19,7 @@ $trips = $conn->query("SELECT * FROM trips");
 </head>
 
 <body>
+ <img src="uploads/hero.png" alt="">
     <p>ciao</p>
     <header>
 
