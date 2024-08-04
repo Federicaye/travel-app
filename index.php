@@ -1,3 +1,12 @@
+<?php
+//including the database connection file
+include_once("db/connection.php");
+
+//fetching data in descending order (lastest entry first)
+$trips = $conn->query("SELECT * FROM trips");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +36,18 @@
             </tr>
         </tbody>
     </table>
+
+  <?php 
+ if ($trips->num_rows > 0) {
+    // output data of each row
+    while($row = $trips->fetch_assoc()) {
+      echo "id: " . $row["id"]. " - Name: " . $row["title"];
+    }
+  } else {
+    echo "0 results";
+  }
+
+  ?>
     </div>
 </body>
 </html>
