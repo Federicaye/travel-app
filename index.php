@@ -16,14 +16,17 @@ $trips = $conn->query("SELECT * FROM trips");
     <title>Document</title>
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet'
         integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' crossorigin='anonymous'>
+        <link rel="stylesheet" href="resources/style.css">
 </head>
 
 <body>
- <img src="uploads/hero.png" alt="">
-    <p>ciao</p>
+ <!-- <img src="image/hero.png" alt=""> -->
+ <p>Foto di <a href="https://unsplash.com/it/@matteokutufa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Matteo Kutufa</a> su <a href="https://unsplash.com/it/foto/fotografia-dal-basso-dellinterno-di-un-edificio-gotico-marrone-2YCyGrmFY4w?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p>
+    
     <header>
 
     </header>
+    <div class="hero"></div>
     <div class="container">
         <h2>travels</h2>
         <table class="table table-hover">
