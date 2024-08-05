@@ -21,12 +21,13 @@ $trips = $conn->query("SELECT * FROM trips");
 
 <body>
  <!-- <img src="image/hero.png" alt=""> -->
- <p>Foto di <a href="https://unsplash.com/it/@matteokutufa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Matteo Kutufa</a> su <a href="https://unsplash.com/it/foto/fotografia-dal-basso-dellinterno-di-un-edificio-gotico-marrone-2YCyGrmFY4w?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p>
+ 
     
     <header>
 
     </header>
     <div class="hero"></div>
+    <p>Foto di <a href="https://unsplash.com/it/@matteokutufa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Matteo Kutufa</a> su <a href="https://unsplash.com/it/foto/fotografia-dal-basso-dellinterno-di-un-edificio-gotico-marrone-2YCyGrmFY4w?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p>
     <div class="container">
         <h2>travels</h2>
         <table class="table table-hover">
