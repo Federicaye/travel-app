@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <?php
-include __DIR__ . "/../src/view/header.php";
+include __DIR__ . "/../db/db.php";
+include __DIR__ . "/../src/views/header.php";
 ?>
 <div class="hero"></div>
