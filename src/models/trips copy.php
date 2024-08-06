@@ -14,5 +14,6 @@ class Trip {
     }
     public function index() {
         $trips = $this->conn->query("SELECT * FROM trips");
+        return $trips->fetch_all();
     }
 }
