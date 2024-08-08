@@ -34,7 +34,7 @@ if (isset($_POST["submit"])) {
   $description = $_POST['description'];
   $image = $target_file;
 
-
+/* 
   $sql = "INSERT INTO trips ( title, description, image)
   VALUES ('$title', '$description', '$image')";
 
@@ -44,7 +44,20 @@ if (isset($_POST["submit"])) {
     echo "Error: " . $sql . "<br>" . $conn->error;
   } 
    
-  $conn->close(); 
+  $conn->close();  */
+
+  $sql = "UPDATE trips SET title='$title', 
+  description='$description',
+  image= $target_file,
+   WHERE id=2";
+
+if ($conn->query($sql) === TRUE) {
+  echo "Record updated successfully";
+} else {
+  echo "Error updating record: " . $conn->error;
+}
+
+$conn->close();
 }
 
 // Check if file already exists
