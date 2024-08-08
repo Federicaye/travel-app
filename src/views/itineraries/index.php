@@ -1,6 +1,8 @@
 <?php
-include '../../models/trips copy.php';
+include '../../models/itinerary.php';
 $trips = Trip::index();
+var_dump($trips);
+
 ?>
 
 <!DOCTYPE html>
@@ -26,15 +28,8 @@ $trips = Trip::index();
             <img src="" alt="">
             <tbody>
                 <?php
-                if ($trips->num_rows > 0) {
-                    // output data of each row
-                    while ($row = $trips->fetch_assoc()) {
-                        echo "<tr> <td>" . $row["id"] . "</td> <td>" . $row["title"] . "</td> <td>" . $row["description"]. "<td> <img src='". $row["image"] ."' style='width: 100px; height:100px;'> </td> </tr>";
-                    }
-                } else {
-                    echo "0 results";
-                }
-
+               foreach ($trips as $trip)
+                echo "<tr> <td>" . $trip["id"] . "</td> <td>" . $trip["title"] . "</td> <td>" . $trip["description"]. "<td> <img src='". $trip["image"] ."' style='width: 100px; height:100px;'> </td> </tr>";
                 ?>
             </tbody>
         </table>
