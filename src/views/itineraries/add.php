@@ -27,6 +27,10 @@
     </div>
 
 </form>
+
 <img src="/image/hero.png" alt="">
 </body>
 </html>
+<?php
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+echo $uri;

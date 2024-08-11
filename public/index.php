@@ -1,6 +1,7 @@
 <?php
-include __DIR__ . "/../db/db.php";
-?>
+/* include __DIR__ . "/../db/db.php"; */
+include __DIR__ . "/routing.php";
+/* ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,4 +21,4 @@ include __DIR__ . "/../db/db.php";
     <div class="hero"></div>
 </body>
 
-</html>
+</html> */
