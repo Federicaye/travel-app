@@ -34,6 +34,7 @@ $itineraries = Itinerary::index();
         <?php
         include __DIR__ . '/../header.php';
         ?>
+        <div class="container">
         <h2 class="red">Itineraries</h2>
         <table class="table table-hover">
             <thead>
@@ -56,10 +57,14 @@ $itineraries = Itinerary::index();
                 <td> <img src='" . $itinerary["image"] . "' style='width: 100px; height:100px;'> </td> 
                 <td><a href='../../controllers/itineraries/edit.php'><i class='fa-solid fa-pen-to-square'></i></a>  </td>
                 <td><a href='../../controllers/itineraries/edit.php" . $itinerary["id"] . "'><i class='fa-solid fa-trash'></i></a> </td>
+                 <td><a href='/delete?id=" . $itinerary["id"] . "'><i class='fa-solid fa-trash'></i> </a></td>
+
                 </tr>";
                 ?>
             </tbody>
+
         </table>
+        </div>
     </div>
     </div>
 </body>

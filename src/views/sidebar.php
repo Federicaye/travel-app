@@ -1,7 +1,7 @@
 <nav id="sidebar" class="bg-dark navbar-dark">
   <a href="" class="nav-link text-white">
     <h2 class="p-2">
-      <i class="fa-solid fa-square-rss"></i> Travel
+    <i class="fa-solid fa-signs-post"></i> Travel
     </h2>
   </a>
   <ul class="nav flex-column">
