@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 
 }
 
-$target_dir = '../../../public/uploads';
+$target_dir = $_SERVER['DOCUMENT_ROOT'] . '/upload/';
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -87,7 +87,10 @@ if ($uploadOk) {
 }
 
 var_dump($target_file);
+var_dump($target_dir);
 var_dump(is_dir($target_dir));
+var_dump(is_dir('../../../public/image'));
+var_dump(__DIR__);
 
 
 
