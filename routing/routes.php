@@ -2,5 +2,6 @@
 
 
 $router->get('/', '../src/views/itineraries/add.php'); 
-$router->get('/miao','../src/views/itineraries/miao.php');
-
+$router->get('/ciao','../src/views/itineraries/ciao.php');
+$router->get('/add/itinerary','../src/views/itineraries/add.php');
+$router->post('/create','../src/controllers/itineraries/add.php');

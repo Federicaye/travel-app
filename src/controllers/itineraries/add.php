@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 
 }
 
-$target_dir = "../../../public/uploads";
+$target_dir = '../../../public/uploads';
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -30,21 +30,7 @@ if (isset($_POST["submit"])) {
     $uploadOk = 0;
   }
 
-  $title = $_POST['title'];
-  $description = $_POST['description'];
-  $image = $target_file;
-
-
-  $sql = "INSERT INTO trips ( title, description, image)
-  VALUES ('$title', '$description', '$image')";
-
-    if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  } 
    
-  $conn->close(); 
 }
 
 // Check if file already exists
@@ -81,8 +67,27 @@ if ($uploadOk == 0) {
 }
 
 
-var_dump($target_file);
+if ($uploadOk) {
 
+  $title = $_POST['title'];
+  $description = $_POST['description'];
+  $image = $target_file;
+
+
+  $sql = "INSERT INTO itineraries ( title, description, image)
+  VALUES ('$title', '$description', '$image')";
+
+    if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  } 
+   
+  $conn->close();
+}
+
+var_dump($target_file);
+var_dump(is_dir($target_dir));
 
 
 

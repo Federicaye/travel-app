@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h2>Add trip</h2>
-<form action="../../controllers/itineraries/add.php" method="POST" enctype="multipart/form-data">
+<form action="/create" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input type="text" class="form-control" id="title" placeholder="title" name="title">
