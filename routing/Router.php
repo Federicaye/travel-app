@@ -48,6 +48,7 @@ class Router
     public function route($uri, $method) {
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === $method) {
+                
                 return require $route['controller'];
             }
         }
