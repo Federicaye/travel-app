@@ -2,8 +2,8 @@
 var_dump(__DIR__);
 /* include $_SERVER['DOCUMENT_ROOT'] . 'src/models/itinerary.php'; */
 include __DIR__ . '/../../models/itinerary.php'; 
-$trips = Trip::index();
-var_dump($trips);
+$itineraries = Itinerary::index();
+var_dump($itineraries);
 
 
 ?>
@@ -36,13 +36,13 @@ var_dump($trips);
             <img src="" alt="">
             <tbody>
                 <?php
-               foreach ($trips as $trip)
-                echo "<tr> <td>" . $trip["id"] . "</td> 
-                <td>" . $trip["title"] . "</td> 
-                <td>" . $trip["description"] . "</td> 
-                <td> <img src='". $trip["image"] . "' style='width: 100px; height:100px;'> </td> 
+               foreach ($itineraries as $itinerary)
+                echo "<tr> <td>" . $itinerary["id"] . "</td> 
+                <td>" . $itinerary["title"] . "</td> 
+                <td>" . $itinerary["description"] . "</td> 
+                <td> <img src='". $itinerary["image"] . "' style='width: 100px; height:100px;'> </td> 
                 <td><a href='../../controllers/itineraries/edit.php'><i class='fa-solid fa-pen-to-square'></i></a>  </td>
-                <td><a href='../../controllers/itineraries/edit.php" . $trip["id"] . "'><i class='fa-solid fa-trash'></i></a> </td>
+                <td><a href='../../controllers/itineraries/edit.php" . $itinerary["id"] . "'><i class='fa-solid fa-trash'></i></a> </td>
                 </tr>";
                 ?>
             </tbody>

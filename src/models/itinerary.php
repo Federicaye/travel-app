@@ -2,7 +2,7 @@
 
 include __DIR__ . '/../../db/connection.php'; 
 
-class Trip
+class Itinerary
 {
 
 
