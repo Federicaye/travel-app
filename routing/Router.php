@@ -2,7 +2,7 @@
 class Router
 {
 
-    protected $routes = [
+    public $routes = [
        
     ];
     public function get($uri, $controller)
@@ -47,8 +47,10 @@ class Router
                 
                 return require $route['controller'];
             }
+            
         }
+        http_response_code(404);
+    echo '404 - Route Not Found';
     }
 }
 
-echo 'ciao';
