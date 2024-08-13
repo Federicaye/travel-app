@@ -41,7 +41,7 @@ class Router
         ];
     }
 
-    public function route($uri, $method) {
+    public function route($uri, $method, $parameters='') {
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === $method) {
                 

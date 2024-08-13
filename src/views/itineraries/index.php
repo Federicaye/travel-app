@@ -5,7 +5,6 @@ include __DIR__ . '/../../models/itinerary.php';
 $itineraries = Itinerary::index();
 /* var_dump($itineraries); */
 
-
 ?>
 
 <!DOCTYPE html>
@@ -23,49 +22,49 @@ $itineraries = Itinerary::index();
         crossorigin='anonymous' referrerpolicy='no-referrer' />
 </head>
 
-<body >
+<body>
     <div id="admin">
-    <?php
-
-    include __DIR__ . '/../sidebar.php';
-
-    ?>
-    <div class="bodyadmin">
         <?php
-        include __DIR__ . '/../header.php';
+
+        include __DIR__ . '/../sidebar.php';
+
         ?>
-        <div class="container">
-        <h2 class="red">Itineraries</h2>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <td>id</td>
-                    <td>title</td>
-                    <td>description</td>
-                    <td>image</td>
-                    <td>edit</td>
-                    <td>delete</td>
-                </tr>
-            </thead>
-            <img src="" alt="">
-            <tbody>
-                <?php
-                foreach ($itineraries as $itinerary)
-                    echo "<tr> <td>" . $itinerary["id"] . "</td> 
+        <div class="bodyadmin">
+            <?php
+            include __DIR__ . '/../header.php';
+            ?>
+            <div class="container">
+                <h2 class="red">Itineraries</h2>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <td>id</td>
+                            <td>title</td>
+                            <td>description</td>
+                            <td>image</td>
+                            <td>detail</td>
+                            <td>edit</td>
+                            <td>delete</td>
+                        </tr>
+                    </thead>
+                    <img src="" alt="">
+                    <tbody>
+                        <?php
+                        foreach ($itineraries as $itinerary)
+                            echo "<tr> <td>" . $itinerary["id"] . "</td> 
                 <td>" . $itinerary["title"] . "</td> 
                 <td>" . $itinerary["description"] . "</td> 
                 <td> <img src='" . $itinerary["image"] . "' style='width: 100px; height:100px;'> </td> 
-                <td><a href='../../controllers/itineraries/edit.php'><i class='fa-solid fa-pen-to-square'></i></a>  </td>
-                <td><a href='../../controllers/itineraries/edit.php" . $itinerary["id"] . "'><i class='fa-solid fa-trash'></i></a> </td>
-                 <td><a href='/delete?id=" . $itinerary["id"] . "'><i class='fa-solid fa-trash'></i> </a></td>
-
+                <td><a href='/itinerary?id=" . $itinerary["id"] . "'><i class='fa-solid fa-eye'></i> </a></td>
+                <td><a href='/delete/" . $itinerary["id"] . "'><i class='fa-solid fa-pen-to-square'></i> </a></td>
+                <td><a href='/edit/" . $itinerary["id"] . "'><i class='fa-solid fa-trash'></i> </a></td>
                 </tr>";
-                ?>
-            </tbody>
+                        ?>
+                    </tbody>
 
-        </table>
+                </table>
+            </div>
         </div>
-    </div>
     </div>
 </body>
 
