@@ -1,7 +1,10 @@
 <?php
-include '../../models/itinerary.php';
+var_dump(__DIR__);
+/* include $_SERVER['DOCUMENT_ROOT'] . 'src/models/itinerary.php'; */
+include __DIR__ . '/../../models/itinerary.php'; 
 $trips = Trip::index();
 var_dump($trips);
+
 
 ?>
 

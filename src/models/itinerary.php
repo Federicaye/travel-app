@@ -1,7 +1,6 @@
 <?php
 
-include $_SERVER['DOCUMENT_ROOT'] . '/travel-app/db/connection.php';
-
+include __DIR__ . '/../../db/connection.php'; 
 
 class Trip
 {
@@ -16,15 +15,15 @@ class Trip
     public static function index()
     {
         self::setConnection();
-        $trips = self::$conn->query("SELECT * FROM trips");
-        return $trips->fetch_all(MYSQLI_ASSOC);
+        $itineraries = self::$conn->query("SELECT * FROM itineraries");
+        return $itineraries->fetch_all(MYSQLI_ASSOC);
     }
     public static function show($id)
     {
         $id = $_GET['id'];
         self::setConnection();
-        $trips = self::$conn->query("SELECT * FROM trips WHERE id = $id");
-        return $trips->fetch_all();
+        $itineraries = self::$conn->query("SELECT * FROM itineraries WHERE id = $id");
+        return $itineraries->fetch_all();
     }
 
     public static function update($id)
@@ -32,13 +31,13 @@ class Trip
         $title = $_POST['title'];
         $description = $_POST['description'];
         $id = $_GET['id'];
-        $sql = "UPDATE trips 
+        $sql = "UPDATE itineraries 
         SET title='$title', 
         description='$description',
         image= 'ciao',
         WHERE id=2";
         self::setConnection();
-        $trips = self::$conn->query($sql);
+        $itineraries = self::$conn->query($sql);
     }
 
     public static function delete($id)
