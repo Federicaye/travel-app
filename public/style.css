@@ -7,3 +7,13 @@
 .red {
    color: red;
 }
+
+#admin {
+    height: 100vh;
+   overflow-y:scroll; 
+   display:flex;
+}
+
+.bodyadmin {
+   width: 100%;
+}

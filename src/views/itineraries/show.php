@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- header -->
+<?php 
+   include __DIR__ . '/../header.php'
+   ?>
     <h3>ciap</h3>
     
 </body>
