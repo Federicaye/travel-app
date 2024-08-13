@@ -3,11 +3,7 @@ class Router
 {
 
     protected $routes = [
-        [ 'uri' => '/',
-        'controller' => '../src/views/itineraries/add.php',
-        'method' => 'GET',
-
-        ]
+       
     ];
     public function get($uri, $controller)
     {
