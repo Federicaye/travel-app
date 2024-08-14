@@ -44,13 +44,15 @@ class Router
     public function route($uri, $method, $parameters='') {
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === $method) {
-                
+              
+                echo $parameters;
                 return require $route['controller'];
+                
             }
             
         }
         http_response_code(404);
-    echo '404 - Route Not Found';
+        echo '404 - Route Not Found';
     }
 }
 
