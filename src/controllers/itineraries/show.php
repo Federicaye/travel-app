@@ -6,6 +6,7 @@ include __DIR__ . '/../../models/itinerary.php';
 $parameters = parse_url($_SERVER['REQUEST_URI'])['query'];
 
 $id = explode('=', $parameters);
-Itinerary::show($parameters);
+$id = $id[1];
+$itinerary = Itinerary::show($id);
 /* echo $parameters; */
-echo $id[1];
+var_dump($itinerary);

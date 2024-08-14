@@ -20,7 +20,7 @@ class Itinerary
     }
     public static function show($id)
     {
-        $id = $_GET['id'];
+        /* $id = $_GET['id']; */
         self::setConnection();
         $itinerary = self::$conn->query("SELECT * FROM itineraries WHERE id = $id");
         return $itinerary->fetch_all();
