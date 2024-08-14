@@ -8,4 +8,4 @@ $router->post('/create', '../src/controllers/itineraries/add.php');
 
 
 $router->get('/itineraries/list', '../src/views/itineraries/index.php');
-$router->get('/itinerary', '../src/views/itineraries/index.php');
+$router->get('/itinerary', '../src/controllers/itineraries/show.php');
