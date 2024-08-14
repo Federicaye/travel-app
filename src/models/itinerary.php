@@ -22,8 +22,8 @@ class Itinerary
     {
         $id = $_GET['id'];
         self::setConnection();
-        $itineraries = self::$conn->query("SELECT * FROM itineraries WHERE id = $id");
-        return $itineraries->fetch_all();
+        $itinerary = self::$conn->query("SELECT * FROM itineraries WHERE id = $id");
+        return $itinerary->fetch_all();
     }
 
     public static function update($id)

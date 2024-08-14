@@ -45,7 +45,6 @@ class Router
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === $method) {
               
-                echo $parameters;
                 return require $route['controller'];
                 
             }
