@@ -29,7 +29,7 @@ $sql = "CREATE TABLE IF NOT EXISTS itineraries (
     )";
 
 if ($conn->query($sql) === TRUE) {
-  echo "Table trips created successfully";
+  echo "Table itinerarys created successfully";
 } else {
   echo "Error creating table: " . $conn->error;
 }
@@ -46,18 +46,18 @@ $sql = "CREATE TABLE IF NOT EXISTS localities (
       )";
 
 if ($conn->query($sql) === TRUE) {
-  echo "Table cities created successfully";
+  echo "Table localities created successfully";
 } else {
   echo "Error creating table: " . $conn->error;
 }
 
 $sql = "CREATE TABLE IF NOT EXISTS hotels (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  city_id INT UNSIGNED NOT NULL,
+  locality_id INT UNSIGNED NOT NULL,
   name VARCHAR(255) NOT NULL,
   address VARCHAR(255) NOT NULL,
   image VARCHAR(255) NOT NULL,
-  FOREIGN KEY (city_id) REFERENCES cities(id) ON DELETE CASCADE
+  FOREIGN KEY (locality_id) REFERENCES localities(id) ON DELETE CASCADE
   
   )";
 
@@ -69,11 +69,11 @@ if ($conn->query($sql) === TRUE) {
 
 $sql = "CREATE TABLE IF NOT EXISTS days (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  trip_id INT UNSIGNED NOT NULL,
-  city_id INT UNSIGNED NOT NULL,
-  order INT UNSIGNED NOT NULL,
-  CONSTRAINT FK_trip FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE,
-  CONSTRAINT FK_city FOREIGN KEY (city_id) REFERENCES cities(id) ON DELETE CASCADE
+  itinerary_id INT UNSIGNED NOT NULL,
+  locality_id INT UNSIGNED NOT NULL,
+  trip_day TINYINT UNSIGNED NOT NULL,
+  CONSTRAINT FK_itinerary FOREIGN KEY (itinerary_id) REFERENCES itineraries(id) ON DELETE CASCADE,
+  CONSTRAINT FK_locality FOREIGN KEY (locality_id) REFERENCES localities(id) ON DELETE CASCADE
 )";
 
 if ($conn->query($sql) === TRUE) {

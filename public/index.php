@@ -1,6 +1,6 @@
 <?php
 use GuzzleHttp\Psr7\Query;
-
+require '../db/db.php';
 require '../routing/Router.php';
 $router = new Router();
 require '../routing/routes.php'; 
