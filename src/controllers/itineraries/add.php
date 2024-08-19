@@ -79,11 +79,13 @@ if ($uploadOk) {
 
     if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
+    $last_id = $conn->insert_id;
+    header("location: /itinerary?id=" . $last_id );
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   } 
    
-  header('location: /itineraries/show' );
+ 
   /* require __DIR__ .'/../../views/itineraries/show.php'; */
   $conn->close();
 }
