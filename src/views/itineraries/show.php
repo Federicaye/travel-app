@@ -17,11 +17,11 @@
         <h2><?php echo $itinerary[0]['title']; ?></h2>
         <p><?php echo $itinerary[0]['description']; ?></p>
 
-
+        <h2>add a stop</h2>
 
         <form action="/stops/store" method="POST" enctype="multipart/form-data">
 
-        <input type="text" hidden name="itinerary_id" value="<?php echo $itinerary[0]['id']; ?>">
+            <input type="text" hidden name="itinerary_id" value="<?php echo $itinerary[0]['id']; ?>">
 
             <div class="mb-3">
                 <label for="locality_name" class="form-label">locality</label>
@@ -30,7 +30,8 @@
 
             <div class="mb-3">
                 <label for="locality_description" class="form-label">description</label>
-                <textarea class="form-control" id="locality_description" rows="3" name="locality_description"></textarea>
+                <textarea class="form-control" id="locality_description" rows="3"
+                    name="locality_description"></textarea>
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">image</label>
@@ -39,7 +40,25 @@
             <input type="submit" value="save" name="submit">
 
         </form>
+
+
+        <p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                Add a stop
+            </button>
+        </p>
+        <div style="min-height: 120px;">
+            <div class="collapse collapse-vertical" id="collapseWidthExample">
+                <div class="card card-body" style="width: 1300px;">
+                    This is some placeholder content for a horizontal collapse. It's hidden by default and shown when
+                    triggered.
+                </div>
+            </div>
+        </div>
+
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
