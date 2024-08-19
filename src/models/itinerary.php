@@ -2,7 +2,7 @@
 
 include __DIR__ . '/../../db/connection.php'; 
 
-class Itinerary
+class itinerary
 {
 
 
@@ -23,7 +23,7 @@ class Itinerary
         /* $id = $_GET['id']; */
         self::setConnection();
         $itinerary = self::$conn->query("SELECT * FROM itineraries WHERE id = $id");
-        return $itinerary->fetch_all();
+        return $itinerary->fetch_all(MYSQLI_ASSOC);
     }
 
     public static function update($id)

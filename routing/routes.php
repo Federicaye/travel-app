@@ -6,9 +6,10 @@ $router->get('/ciao','../src/views/itineraries/ciao.php');
 $router->get('/itineraries/add','../src/views/itineraries/add.php');
 $router->post('/itineraries/create', '../src/controllers/itineraries/add.php');
 
-$router->get('/itineraries/show', '../src/views/itineraries/show.php'); 
 
+//index
 $router->get('/itineraries/list', '../src/views/itineraries/index.php');
+//show 
 $router->get('/itinerary', '../src/controllers/itineraries/show.php');
 
 
