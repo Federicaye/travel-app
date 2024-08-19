@@ -20,8 +20,8 @@ $locality_description = $_POST['locality_description'];
 /* $image = $target_file; */
 
 
-$sql = "INSERT INTO localities ( name, description)
-VALUES ('$locality_name', '$locality_description')";
+$sql = "INSERT INTO localities ( name, description, longitude, latitude, image)
+VALUES ('$locality_name', '$locality_description', '98.00000000', '88.000000000', 'image')";
 
   if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
@@ -31,8 +31,8 @@ VALUES ('$locality_name', '$locality_description')";
   echo "Error: " . $sql . "<br>" . $conn->error;
 } 
  
-$sql = "INSERT INTO days ( itinerary_id, locality_id)
-VALUES ('$itinerary_id', '$locality_id')";
+$sql = "INSERT INTO days ( itinerary_id, locality_id, trip_day)
+VALUES ('$itinerary_id', '$locality_id', '6')";
 
   if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
