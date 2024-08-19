@@ -83,14 +83,15 @@ if ($uploadOk) {
     echo "Error: " . $sql . "<br>" . $conn->error;
   } 
    
+  header('location: /itineraries/show' );
+  /* require __DIR__ .'/../../views/itineraries/show.php'; */
   $conn->close();
 }
 
-var_dump($target_file);
+/* var_dump($target_file);
 var_dump($target_dir);
 var_dump(is_dir($target_dir));
 var_dump(is_dir('../../../public/image'));
-var_dump(__DIR__);
-
+var_dump(__DIR__); */
 
 
