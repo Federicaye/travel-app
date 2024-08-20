@@ -34,25 +34,12 @@
 
                         <input type="text" hidden name="itinerary_id" value="<?php echo $itinerary[0]['id']; ?>">
 
-                        <!--     <div class="mb-3">
-                            <label for="locality_name" class="form-label">locality</label>
-                            <input list="locality_name" type="text" class="form-control" id="locality"
-                                placeholder="locality" name="locality_name">
-
-                            <datalist id="locality_name">
-                              
-                            </datalist>
-                        </div> -->
 
                         <div class="mb-3">
                             <label for="locality_name">locality</label>
                             <input type="text" id="locality_name" list="locality" name="locality_name">
                             <datalist id="locality">
-                                <option value="Edge">
-                                <option value="Firefox">
-                                <option value="Chrome">
-                                <option value="Opera">
-                                <option value="Safari">
+                                
                             </datalist>
                         </div>
                         <div class="mb-3">

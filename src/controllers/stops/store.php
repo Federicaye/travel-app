@@ -20,8 +20,6 @@ $locality_name = $_POST['locality_name'];
 $locality_description = $_POST['locality_description'];
 /* $image = $target_file; */
 
-
-
 $client = new Client([
   // Base URI is used with relative requests
   'base_uri' => 'https://api.tomtom.com/search/2/geocode/',
