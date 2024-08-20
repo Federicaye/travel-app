@@ -51,14 +51,41 @@
         <div style="min-height: 120px;">
             <div class="collapse collapse-vertical" id="collapseWidthExample">
                 <div class="card card-body" style="width: 1300px;">
-                    This is some placeholder content for a horizontal collapse. It's hidden by default and shown when
-                    triggered.
+                    <form action="/stops/store" method="POST" enctype="multipart/form-data">
+
+                        <input type="text" hidden name="itinerary_id" value="<?php echo $itinerary[0]['id']; ?>">
+
+                        <div class="mb-3">
+                            <label for="locality_name" class="form-label">locality</label>
+                            <input list="locality_name" type="text" class="form-control" id="locality_name" placeholder="locality"
+                                name="locality_name">
+
+                            <datalist id="locality_name">
+
+                            </datalist>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="locality_description" class="form-label">description</label>
+                            <textarea class="form-control" id="locality_description" rows="3"
+                                name="locality_description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">image</label>
+                            <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
+                        </div>
+                        <input type="submit" value="save" name="submit">
+
+                    </form>
                 </div>
             </div>
         </div>
 
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="/script.js" type="module"> </script>
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 <?php
+use GuzzleHttp\Client;
 
 $servername = "localhost";
 $username = "root";
@@ -19,6 +20,14 @@ $locality_name = $_POST['locality_name'];
 $locality_description = $_POST['locality_description'];
 /* $image = $target_file; */
 
+
+
+$client = new Client([
+  // Base URI is used with relative requests
+  'base_uri' => 'https://api.tomtom.com/search/2/geocode/',
+  // You can set any number of default request options.
+  'timeout'  => 2.0,
+]);
 
 $sql = "INSERT INTO localities ( name, description, longitude, latitude, image)
 VALUES ('$locality_name', '$locality_description', '98.00000000', '88.000000000', 'image')";
