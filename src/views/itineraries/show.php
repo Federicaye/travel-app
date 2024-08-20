@@ -7,6 +7,8 @@
     <title>Document</title>
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet'
         integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' crossorigin='anonymous'>
+
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -19,36 +21,13 @@
 
         <h2>add a stop</h2>
 
-        <form action="/stops/store" method="POST" enctype="multipart/form-data">
-
-            <input type="text" hidden name="itinerary_id" value="<?php echo $itinerary[0]['id']; ?>">
-
-            <div class="mb-3">
-                <label for="locality_name" class="form-label">locality</label>
-                <input type="text" class="form-control" id="locality_name" placeholder="locality" name="locality_name">
-            </div>
-
-            <div class="mb-3">
-                <label for="locality_description" class="form-label">description</label>
-                <textarea class="form-control" id="locality_description" rows="3"
-                    name="locality_description"></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="image" class="form-label">image</label>
-                <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
-            </div>
-            <input type="submit" value="save" name="submit">
-
-        </form>
-
-
         <p>
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
                 Add a stop
             </button>
         </p>
-        <div style="min-height: 120px;">
+        <div >
             <div class="collapse collapse-vertical" id="collapseWidthExample">
                 <div class="card card-body" style="width: 1300px;">
                     <form action="/stops/store" method="POST" enctype="multipart/form-data">
@@ -57,11 +36,11 @@
 
                         <div class="mb-3">
                             <label for="locality_name" class="form-label">locality</label>
-                            <input list="locality_name" type="text" class="form-control" id="locality_name" placeholder="locality"
-                                name="locality_name">
+                            <input list="locality_name" type="text" class="form-control" id="locality"
+                                placeholder="locality" name="locality_name">
 
                             <datalist id="locality_name">
-
+                              
                             </datalist>
                         </div>
 
