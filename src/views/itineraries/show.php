@@ -27,14 +27,14 @@
                 Add a stop
             </button>
         </p>
-        <div >
+        <div>
             <div class="collapse collapse-vertical" id="collapseWidthExample">
                 <div class="card card-body" style="width: 1300px;">
                     <form action="/stops/store" method="POST" enctype="multipart/form-data">
 
                         <input type="text" hidden name="itinerary_id" value="<?php echo $itinerary[0]['id']; ?>">
 
-                        <div class="mb-3">
+                        <!--     <div class="mb-3">
                             <label for="locality_name" class="form-label">locality</label>
                             <input list="locality_name" type="text" class="form-control" id="locality"
                                 placeholder="locality" name="locality_name">
@@ -42,8 +42,19 @@
                             <datalist id="locality_name">
                               
                             </datalist>
-                        </div>
+                        </div> -->
 
+                        <div class="mb-3">
+                            <label for="locality_name">locality</label>
+                            <input type="text" id="locality_name" list="locality" name="locality_name">
+                            <datalist id="locality">
+                                <option value="Edge">
+                                <option value="Firefox">
+                                <option value="Chrome">
+                                <option value="Opera">
+                                <option value="Safari">
+                            </datalist>
+                        </div>
                         <div class="mb-3">
                             <label for="locality_description" class="form-label">description</label>
                             <textarea class="form-control" id="locality_description" rows="3"

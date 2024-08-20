@@ -1,10 +1,8 @@
-let addressInput = document.getElementById('locality');
-let datalist = document.getElementById('locality_name');
-addressInput.addEventListener('input', async function () {
-  let address = addressInput.value;
+let localityInput = document.getElementById('locality_name');
+let datalist = document.getElementById('locality');
+localityInput.addEventListener('input', async function () {
+  let address = localityInput.value;
   let url = 'https://api.tomtom.com/search/2/search/ro.json?key=MqZHrYthLN7RSxSAN8jGZFCldqWYoi99&type=Geography&entityTypeSet=Municipality&typeahead=true';
-  let promise = fetch(url);
-
   let response = await fetch(url);
 
   if (response.ok) { // se l'HTTP-status è 200-299
