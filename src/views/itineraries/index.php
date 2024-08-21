@@ -1,9 +1,8 @@
 <?php
-/* var_dump(__DIR__); */
-/* include $_SERVER['DOCUMENT_ROOT'] . 'src/models/itinerary.php'; */
+
 include __DIR__ . '/../../models/itinerary.php';
 $itineraries = Itinerary::index();
-/* var_dump($itineraries); */
+
 
 ?>
 
@@ -23,17 +22,19 @@ $itineraries = Itinerary::index();
 </head>
 
 <body>
-    <div id="admin">
+    <div>
         <?php
 
         include __DIR__ . '/../sidebar.php';
-
+        include __DIR__ . '/../header.php';
         ?>
-        <div class="bodyadmin">
-            <?php
-            include __DIR__ . '/../header.php';
-            ?>
-            <div class="container">
+
+
+            
+            
+        <div class=" main-content" id="mainContent">
+            
+            <div>
                 <h2 class="red">Itineraries</h2>
                 <table class="table table-hover">
                     <thead>
@@ -65,7 +66,9 @@ $itineraries = Itinerary::index();
                 </table>
             </div>
         </div>
+
     </div>
+
 </body>
 
 </html>

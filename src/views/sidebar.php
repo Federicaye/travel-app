@@ -1,24 +1,25 @@
-<nav id="sidebar" class="bg-dark navbar-dark">
-  <a href="" class="nav-link text-white">
-    <h2 class="p-2">
-    <i class="fa-solid fa-signs-post"></i> Travel
-    </h2>
-  </a>
-  <ul class="nav flex-column">
-    <li class="nav-item">
-      <a class="nav-link text-white " href=""><i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i>Dasboard</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link  text-white " href=""> <i class="fa-solid fa-newspaper fa-lg fa-fw"></i>Itineraries</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link  text-white " href=""><i class="fa-solid fa-map-location-dot"></i>Trips</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link  text-white" href=""> <i class="fa-solid fa-location-dot"></i>Localities</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link  text-white" href=""> <i class="fa-solid fa-location-crosshairs"></i>Localities</a>
-    </li>
-  </ul>
-</nav>
+<div class="sidebar" id="sidebar">
+    <div class="p-3">
+       
+        <h4>Sidebar</h4>
+        <hr>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Itineraries</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Stops</a>
+            </li>
+            <hr >
+            <li class="nav-item">
+                <a class="nav-link" href="#">Localities</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+            <hr>
+        </ul>
+    </div>
+</div>

@@ -5,7 +5,7 @@
    height: 500px;
 }
 .red {
-   color: red;
+   color: #fc7753;
 }
 
 #admin {
@@ -16,4 +16,58 @@
 
 .bodyadmin {
    width: 100%;
+}
+
+body {
+   background-color: #f2efea;
+}
+
+.sidebar {
+   height: 100vh; /* altezza sidebar */
+   position: fixed; /* FISSA COSI NON SCORRE CON LA PAGINA */
+   top: 0;
+   left: 0;
+   width: 250px;
+   background-color: #50808E;;
+   color: white;
+   transition: width 0.3s;
+   overflow: auto;
+}
+.sidebar .nav-link {
+   color: white;
+}
+.sidebar .nav-link:hover {
+   color:#DBD56E;
+}
+.main-content {
+   margin-left: 250px;
+   transition: margin-left 0.3s;
+   padding: 1rem;
+   background-color: #f2efea;
+}
+
+header {
+   margin-left: 250px;
+   transition: margin-left 0.3s;
+   background-color: #5F595D;
+   color: #f2efea;
+}
+
+
+@media (max-width: 992px) {
+   .sidebar {
+       width: 70px;
+       overflow: hidden;
+   }
+   .sidebar .nav-link {
+       font-size: 0; 
+   }
+   .main-content {
+       margin-left: 70px;
+   }
+
+   header {
+      margin-left: 70px;
+   }
+  
 }
