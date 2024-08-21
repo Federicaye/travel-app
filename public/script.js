@@ -2,7 +2,7 @@ let localityInput = document.getElementById('locality_name');
 let datalist = document.getElementById('locality');
 localityInput.addEventListener('input', async function () {
   let locality = localityInput.value;
-  let url = `https://api.tomtom.com/search/2/search/${encodeURIComponent(locality)}.json?key=MqZHrYthLN7RSxSAN8jGZFCldqWYoi99&type=Geography&entityTypeSet=Municipality&countrySet=ITA`;
+  let url = `https://api.tomtom.com/search/2/search/${encodeURIComponent(locality)}.json?key=MqZHrYthLN7RSxSAN8jGZFCldqWYoi99&type=Geography&entityTypeSet=Municipality&countrySet=ITA&typeahead=true`;
   let response = await fetch(url);
 
   if (response.ok) { // se l'HTTP-status è 200-299
