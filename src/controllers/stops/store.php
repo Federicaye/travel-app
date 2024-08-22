@@ -29,7 +29,7 @@ $client = new Client([
   'verify' => false,
 ]);  
 
-$response = $client->request('GET', '{$locality_name}.json', [
+$response = $client->request('GET', "{$locality_name}.json", [
   'query' => [
     'key' => 'MqZHrYthLN7RSxSAN8jGZFCldqWYoi99'
   ]
@@ -38,10 +38,15 @@ $response = $client->request('GET', '{$locality_name}.json', [
 $body = (string) $response->getBody();
 $jsonData = json_decode($body, true);
 
+$lat = $jsonData['results'][0]['position']['lat'];
+$lon = $jsonData['results'][0]['position']['lon'];
+/* for ($x = 0; $x <= 10; $x++){
+  var_dump($jsonData['results'][$x]);
+}  */
 
-echo $jsonData;
+echo $lat;
 $sql = "INSERT INTO localities ( name, description, longitude, latitude, image)
-VALUES ('$locality_name', '$locality_description', '98.00000000', '88.000000000', 'image')";
+VALUES ('$locality_name', '$locality_description', '$lon', '$lat', 'image')";
 
   if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
