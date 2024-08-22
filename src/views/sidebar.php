@@ -1,4 +1,4 @@
-<div class="sidebar" id="sidebar">
+<div class="sidebar">
     <div class="p-3">
 
         <h4>Sidebar</h4>

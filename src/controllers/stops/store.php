@@ -29,14 +29,17 @@ $client = new Client([
   'verify' => false,
 ]);  
 
-$body = $response->getBody();
-
 $response = $client->request('GET', '{$locality_name}.json', [
   'query' => [
     'key' => 'MqZHrYthLN7RSxSAN8jGZFCldqWYoi99'
   ]
 ]);
 
+$body = (string) $response->getBody();
+$jsonData = json_decode($body, true);
+
+
+echo $jsonData;
 $sql = "INSERT INTO localities ( name, description, longitude, latitude, image)
 VALUES ('$locality_name', '$locality_description', '98.00000000', '88.000000000', 'image')";
 
