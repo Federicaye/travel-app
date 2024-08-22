@@ -29,6 +29,8 @@ $client = new Client([
   'verify' => false,
 ]);  
 
+$body = $response->getBody();
+
 $response = $client->request('GET', '{$locality_name}.json', [
   'query' => [
     'key' => 'MqZHrYthLN7RSxSAN8jGZFCldqWYoi99'
