@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . '/../../../vendor/autoload.php';
 use GuzzleHttp\Client;
 
 $servername = "localhost";
@@ -25,6 +26,13 @@ $client = new Client([
   'base_uri' => 'https://api.tomtom.com/search/2/geocode/',
   // You can set any number of default request options.
   'timeout'  => 2.0,
+  'verify' => false,
+]);  
+
+$response = $client->request('GET', '{$locality_name}.json', [
+  'query' => [
+    'key' => 'MqZHrYthLN7RSxSAN8jGZFCldqWYoi99'
+  ]
 ]);
 
 $sql = "INSERT INTO localities ( name, description, longitude, latitude, image)

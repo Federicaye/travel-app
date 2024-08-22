@@ -10,7 +10,8 @@
 
   <!-- header -->
 <?php 
-include __DIR__ . '/../header.php'
+include __DIR__ . '/../sidebar.php';
+include __DIR__ . '/../header.php';
 ?>
     <div class="container">
         <h2>Add trip</h2>

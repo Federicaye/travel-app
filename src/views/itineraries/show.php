@@ -13,9 +13,10 @@
 
 <body>
     <?php
-    include __DIR__ . '/../../views/header.php';
+    include __DIR__ . '/../sidebar.php';
+    include __DIR__ . '/../header.php';
     ?>
-    <div class="container">
+    <div class=" main-content">
         <h2><?php echo $itinerary[0]['title']; ?></h2>
         <p><?php echo $itinerary[0]['description']; ?></p>
 
@@ -29,17 +30,18 @@
         </p>
         <div>
             <div class="collapse collapse-vertical" id="collapseWidthExample">
-                <div class="card card-body" style="width: 1300px;">
+                <div class="card card-body" >
                     <form action="/stops/store" method="POST" enctype="multipart/form-data">
 
                         <input type="text" hidden name="itinerary_id" value="<?php echo $itinerary[0]['id']; ?>">
 
-                        
+
                         <div class="mb-3">
                             <label for="locality_name" class="form-label">locality</label>
-                            <input type="text" id="locality_name" list="locality" name="locality_name" class="form-control">
+                            <input type="text" id="locality_name" list="locality" name="locality_name"
+                                class="form-control">
                             <datalist id="locality">
-                                
+
                             </datalist>
                         </div>
                         <div class="mb-3">
@@ -52,7 +54,7 @@
                             <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
                         </div>
 
-                        
+
                         <input type="submit" value="save" name="submit">
 
                     </form>

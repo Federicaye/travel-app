@@ -28,11 +28,8 @@ $itineraries = Itinerary::index();
         include __DIR__ . '/../sidebar.php';
         include __DIR__ . '/../header.php';
         ?>
-
-
-            
-            
-        <div class=" main-content" id="mainContent">
+          
+        <div class=" main-content">
             
             <div>
                 <h2 class="red">Itineraries</h2>
