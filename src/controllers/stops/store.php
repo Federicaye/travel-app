@@ -44,7 +44,6 @@ $lon = $jsonData['results'][0]['position']['lon'];
   var_dump($jsonData['results'][$x]);
 }  */
 
-echo $lat;
 $sql = "INSERT INTO localities ( name, description, longitude, latitude, image)
 VALUES ('$locality_name', '$locality_description', '$lon', '$lat', 'image')";
 

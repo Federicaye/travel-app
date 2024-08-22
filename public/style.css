@@ -34,10 +34,10 @@ body {
    overflow: auto;
 }
 .sidebar .nav-link {
-   color: white;
+   color: rgb(9, 9, 9);
 }
 .sidebar .nav-link:hover {
-   color:#DBD56E;
+   color:#fc7753;
 }
 .main-content {
    margin-left: 250px;
@@ -49,8 +49,7 @@ body {
 header {
    margin-left: 250px;
    transition: margin-left 0.3s;
-   background-color: #5F595D;
-   color: #f2efea;
+   background-color: #ffffff;
 }
 
 
