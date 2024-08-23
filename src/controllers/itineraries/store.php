@@ -1,6 +1,5 @@
 <?php
 
-
 include __DIR__ . '/../../models/itinerary.php';
 
 $target_dir = 'upload/';
