@@ -5,6 +5,6 @@ $parameters = parse_url($_SERVER['REQUEST_URI'])['query'];
 
 $id = explode('=', $parameters);
 $id = $id[1];
-$itineraryData = Itinerary::show($id);
-
-require __DIR__ . '/../../views/itineraries/show.php';
+Itinerary::delete($id);
+header("location: /itineraries/list" );
+/* require __DIR__ . '/../../views/itineraries/index.php'; */

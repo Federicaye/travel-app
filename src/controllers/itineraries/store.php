@@ -1,19 +1,5 @@
 <?php
-/* 
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "travelapp";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  echo "error";
-  die("Connection failed: " . $conn->connect_error);
-
-}
- */
 
 include __DIR__ . '/../../models/itinerary.php';
 
@@ -79,19 +65,7 @@ if ($uploadOk) {
   $last_id = Itinerary::store($title, $description, $image);
   header("location: /itinerary?id=" . $last_id );
  
-  /*  $sql = "INSERT INTO itineraries ( title, description, image)
-  VALUES ('$title', '$description', '$image')";
-
-    if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-    $last_id = $conn->insert_id;
-   header("location: /itinerary?id=" . $last_id ); 
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  } 
-    */
- 
-  /* require __DIR__ .'/../../views/itineraries/show.php'; */
   
+
 }
 

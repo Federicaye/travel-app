@@ -54,8 +54,8 @@ $itineraries = Itinerary::index();
                 <td>" . $itinerary["description"] . "</td> 
                 <td> <img src='../../../" . $itinerary["image"] . "' style='width: 100px; height:100px;'> </td> 
                 <td><a href='/itinerary?id=" . $itinerary["id"] . "'><i class='fa-solid fa-eye'></i> </a></td>
-                <td><a href='/delete/" . $itinerary["id"] . "'><i class='fa-solid fa-pen-to-square'></i> </a></td>
-                <td><a href='/edit/" . $itinerary["id"] . "'><i class='fa-solid fa-trash'></i> </a></td>
+                <td><a href='/itineraries/edit?id=" . $itinerary["id"] . "'><i class='fa-solid fa-pen-to-square'></i> </a></td>
+                <td><a href='/itineraries/delete?id=" . $itinerary["id"] . "'><i class='fa-solid fa-trash'></i> </a></td>
                 </tr>";
                         ?>
                     </tbody>

@@ -18,7 +18,7 @@ class itinerary
     }
     public static function show($id)
     {
-        /* $id = $_GET['id']; */
+
         self::setConnection();
         $itinerary = self::$conn->query("SELECT * FROM itineraries WHERE id = $id");
         $itinerary = $itinerary->fetch_all(MYSQLI_ASSOC);
@@ -48,8 +48,16 @@ class itinerary
 
     public static function delete($id)
     {
-        $id = $_GET['id'];
         self::setConnection();
+        $sql = "DELETE FROM itineraries WHERE id=$id";
+
+        if (self::$conn->query($sql) === TRUE) {
+            echo "Record deleted successfully";
+        } else {
+            echo "Error deleting record: " . self::$conn->error;
+        }
+
+        self::$conn->close();
     }
 
     public static function store($title, $description, $image)
