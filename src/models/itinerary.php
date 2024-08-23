@@ -25,7 +25,8 @@ class itinerary
         $itinerary = self::$conn->query("SELECT * FROM itineraries WHERE id = $id");
         $itinerary = $itinerary->fetch_all(MYSQLI_ASSOC);
 
-        $stops = self::$conn->query("SELECT * FROM days WHERE itinerary_id = $id ");
+
+        $stops = self::$conn->query("SELECT * FROM days INNER JOIN localities ON days.locality_id=localities.id WHERE itinerary_id = $id");
         $stops = $stops->fetch_all(MYSQLI_ASSOC);
         return [
             'itinerary' => $itinerary,

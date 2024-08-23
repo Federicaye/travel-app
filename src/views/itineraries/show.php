@@ -19,6 +19,15 @@
     <div class=" main-content">
         <h2><?php echo $itineraryData['itinerary'][0]['title']; ?></h2>
         <p><?php echo $itineraryData['itinerary'][0]['description']; ?></p>
+        <p>
+            <?php
+
+             foreach ($itineraryData['stops'] as $stop ) {
+                echo $stop['locality_id'];
+              }
+              ?>
+        </p>
+        <?php var_dump($itineraryData) ?>
 
         <h2>add a stop</h2>
 
@@ -33,7 +42,7 @@
                 <div class="card card-body" >
                     <form action="/stops/store" method="POST" enctype="multipart/form-data">
 
-                        <input type="text" hidden name="itinerary_id" value="<?php echo $itinerary[0]['id']; ?>">
+                        <input type="text" hidden name="itinerary_id" value="<?php echo $itineraryData['itinerary'][0]['id']; ?>">
 
 
                         <div class="mb-3">
