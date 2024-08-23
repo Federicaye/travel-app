@@ -52,7 +52,7 @@ $itineraries = Itinerary::index();
                             echo "<tr> <td>" . $itinerary["id"] . "</td> 
                 <td>" . $itinerary["title"] . "</td> 
                 <td>" . $itinerary["description"] . "</td> 
-                <td> <img src='" . $itinerary["image"] . "' style='width: 100px; height:100px;'> </td> 
+                <td> <img src='../../../" . $itinerary["image"] . "' style='width: 100px; height:100px;'> </td> 
                 <td><a href='/itinerary?id=" . $itinerary["id"] . "'><i class='fa-solid fa-eye'></i> </a></td>
                 <td><a href='/delete/" . $itinerary["id"] . "'><i class='fa-solid fa-pen-to-square'></i> </a></td>
                 <td><a href='/edit/" . $itinerary["id"] . "'><i class='fa-solid fa-trash'></i> </a></td>
@@ -62,6 +62,7 @@ $itineraries = Itinerary::index();
 
                 </table>
             </div>
+            <img src="/upload/" alt="">
         </div>
 
     </div>

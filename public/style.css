@@ -1,8 +1,12 @@
 #logo-ti {
-   width: 140px;
-   border-radius: 50%;
+   width: 160px;
+   
 }
 
+#logo-container {
+   display: flex;
+   justify-content: center;
+}
 
 .hero {
    background-image: url('image/hero.jpg');
@@ -76,7 +80,7 @@ header {
    }
    #logo-ti {
       width: 60px;
-      border-radius: 50%;
+     
    }
    
   

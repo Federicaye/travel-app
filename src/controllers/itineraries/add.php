@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 
 }
 
-$target_dir = $_SERVER['DOCUMENT_ROOT'] . '/upload/';
+$target_dir = 'upload/';
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -80,7 +80,7 @@ if ($uploadOk) {
     if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
     $last_id = $conn->insert_id;
-    header("location: /itinerary?id=" . $last_id );
+  /*   header("location: /itinerary?id=" . $last_id ); */
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   } 
@@ -97,3 +97,18 @@ var_dump(is_dir('../../../public/image'));
 var_dump(__DIR__); */
 
 
+if ($uploadOk == 0) {
+  echo "Sorry, your file was not uploaded.";
+} else {
+  // Controllo di eventuali errori durante l'upload
+  if ($_FILES["fileToUpload"]["error"] != 0) {
+      echo "Errore durante il caricamento del file. Codice errore: " . $_FILES["fileToUpload"]["error"];
+  } else {
+      // Prova a spostare il file nella directory di destinazione
+      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
+      } else {
+        echo "Sorry, there was an error uploading your file.";
+      }
+  }
+}
