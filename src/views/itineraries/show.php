@@ -19,14 +19,17 @@
     <div class=" main-content">
         <h2><?php echo $itineraryData['itinerary'][0]['title']; ?></h2>
         <p><?php echo $itineraryData['itinerary'][0]['description']; ?></p>
-        <p>
+        
+            <ul>
             <?php
 
              foreach ($itineraryData['stops'] as $stop ) {
-                echo $stop['locality_id'];
+               echo '<li>' . $stop['name'] . ' ' . $stop['description']; '</li>';
+                
               }
               ?>
-        </p>
+              </ul>
+        
         <?php var_dump($itineraryData) ?>
 
         <h2>add a stop</h2>

@@ -1,7 +1,7 @@
 <div class="sidebar">
     <div class="p-3">
 
-        <h4>Sidebar</h4>
+       <img src="/image/logo.png" alt="" id="logo-ti" >
         <hr>
 
         <ul class="nav flex-column">

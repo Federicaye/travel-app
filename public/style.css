@@ -1,3 +1,9 @@
+#logo-ti {
+   width: 140px;
+   border-radius: 50%;
+}
+
+
 .hero {
    background-image: url('image/hero.jpg');
    background-size: cover; 
@@ -68,5 +74,10 @@ header {
    header {
       margin-left: 70px;
    }
+   #logo-ti {
+      width: 60px;
+      border-radius: 50%;
+   }
+   
   
 }
