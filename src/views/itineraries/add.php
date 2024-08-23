@@ -21,7 +21,7 @@
     ?>
   <div class=" main-content">
     <h2>Add trip</h2>
-    <form action="/itineraries/create" method="POST" enctype="multipart/form-data">
+    <form action="/itineraries/store" method="POST" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input type="text" class="form-control" id="title" placeholder="title" name="title">
