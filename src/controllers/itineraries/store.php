@@ -1,5 +1,5 @@
 <?php
-
+/* 
 $servername = "localhost";
 $username = "root";
 $password = "root";
@@ -13,6 +13,9 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 
 }
+ */
+
+include __DIR__ . '/../../models/itinerary.php';
 
 $target_dir = 'upload/';
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -72,9 +75,11 @@ if ($uploadOk) {
   $title = $_POST['title'];
   $description = $_POST['description'];
   $image = $target_file;
-
-
-  $sql = "INSERT INTO itineraries ( title, description, image)
+ 
+  $last_id = Itinerary::store($title, $description, $image);
+  header("location: /itinerary?id=" . $last_id );
+ 
+  /*  $sql = "INSERT INTO itineraries ( title, description, image)
   VALUES ('$title', '$description', '$image')";
 
     if ($conn->query($sql) === TRUE) {
@@ -84,9 +89,9 @@ if ($uploadOk) {
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   } 
-   
+    */
  
   /* require __DIR__ .'/../../views/itineraries/show.php'; */
-  $conn->close();
+  
 }
 

@@ -1,11 +1,9 @@
 <?php
 
-include __DIR__ . '/../../db/connection.php'; 
+include __DIR__ . '/../../db/connection.php';
 
 class itinerary
 {
-
-
     private static $conn;
 
     public static function setConnection()
@@ -54,9 +52,15 @@ class itinerary
         self::setConnection();
     }
 
-    public static function store($id)
+    public static function store($title, $description, $image)
     {
-        $id = $_GET['id'];
         self::setConnection();
+        $sql = "INSERT INTO itineraries (title, description, image) VALUES ('$title', '$description', '$image')";
+
+        if (self::$conn->query($sql) === TRUE) {
+
+            $last_id = self::$conn->insert_id;
+            return $last_id;
+        }
     }
 }
