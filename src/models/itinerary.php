@@ -23,7 +23,14 @@ class itinerary
         /* $id = $_GET['id']; */
         self::setConnection();
         $itinerary = self::$conn->query("SELECT * FROM itineraries WHERE id = $id");
-        return $itinerary->fetch_all(MYSQLI_ASSOC);
+        $itinerary = $itinerary->fetch_all(MYSQLI_ASSOC);
+
+        $stops = self::$conn->query("SELECT * FROM days WHERE itinerary_id = $id ");
+        $stops = $stops->fetch_all(MYSQLI_ASSOC);
+        return [
+            'itinerary' => $itinerary,
+            'stops' => $stops
+        ];
     }
 
     public static function update($id)

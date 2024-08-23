@@ -17,8 +17,8 @@
     include __DIR__ . '/../header.php';
     ?>
     <div class=" main-content">
-        <h2><?php echo $itinerary[0]['title']; ?></h2>
-        <p><?php echo $itinerary[0]['description']; ?></p>
+        <h2><?php echo $itineraryData['itinerary'][0]['title']; ?></h2>
+        <p><?php echo $itineraryData['itinerary'][0]['description']; ?></p>
 
         <h2>add a stop</h2>
 
