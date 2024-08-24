@@ -32,18 +32,16 @@ class itinerary
         ];
     }
 
-    public static function update($id)
+    public static function update($title, $description, $image, $id)
     {
-        $title = $_POST['title'];
-        $description = $_POST['description'];
-        $id = $_GET['id'];
+       
         $sql = "UPDATE itineraries 
         SET title='$title', 
         description='$description',
-        image= 'ciao',
-        WHERE id=2";
+        image= '$image',
+        WHERE id=$id";
         self::setConnection();
-        $itineraries = self::$conn->query($sql);
+        self::$conn->query($sql);
     }
 
     public static function delete($id)

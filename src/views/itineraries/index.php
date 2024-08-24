@@ -55,7 +55,7 @@ $itineraries = Itinerary::index();
                 <td> <img src='../../../" . $itinerary["image"] . "' style='width: 100px; height:100px;'> </td> 
                 <td><a href='/itinerary?id=" . $itinerary["id"] . "'><i class='fa-solid fa-eye'></i> </a></td>
                 <td><a href='/itineraries/edit?id=" . $itinerary["id"] . "'><i class='fa-solid fa-pen-to-square'></i> </a></td>
-                
+
                 <td><form action='/itineraries/delete' method='POST'>
                 <input type='hidden' name='_method' value='DELETE'>
                 <input type='hidden' name='id' value='" . $itinerary["id"] . "'>

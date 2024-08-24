@@ -2,7 +2,7 @@
 
 include __DIR__ . '/../../models/itinerary.php';
 
-$target_dir = 'upload/';
+$target_dir = "public/uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -18,7 +18,19 @@ if (isset($_POST["submit"])) {
     $uploadOk = 0;
   }
 
+
+/* 
+  $sql = "INSERT INTO trips ( title, description, image)
+  VALUES ('$title', '$description', '$image')";
+
+    if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  } 
    
+  $conn->close();  */
+
 }
 
 // Check if file already exists
@@ -28,10 +40,10 @@ if (isset($_POST["submit"])) {
 } */
 
 // Check file size
-/* if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($_FILES["fileToUpload"]["size"] > 500000) {
   echo "Sorry, your file is too large.";
   $uploadOk = 0;
-} */
+}
 
 // Allow certain file formats
 if (
@@ -54,15 +66,14 @@ if ($uploadOk == 0) {
   }
 }
 
-
 if ($uploadOk) {
 
-  $title = $_POST['title'];
-  $description = $_POST['description'];
-  $image = $target_file;
- 
-  $last_id = Itinerary::store($title, $description, $image);
-  header("location: /itinerary?id=" . $last_id );
- 
-}
-
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $image = $target_file;
+   
+   Itinerary::update($title, $description, $image, $id);
+    header("location: /itinerary?id=" . $last_id );
+   
+  }
+  
