@@ -10,7 +10,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $parameters = isset($url['query']) ? $url['query'] : null;
 
 
-$method = $_SERVER['REQUEST_METHOD'];
+$method = isset($_POST['_method']) ? $_POST['_method'] : $_SERVER['REQUEST_METHOD'];
 $router->route($uri, $method, $parameters);
 
 /* var_dump(parse_url($_SERVER['REQUEST_URI'])['query']); 

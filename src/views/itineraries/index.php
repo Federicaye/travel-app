@@ -28,9 +28,9 @@ $itineraries = Itinerary::index();
         include __DIR__ . '/../sidebar.php';
         include __DIR__ . '/../header.php';
         ?>
-          
+
         <div class=" main-content">
-            
+
             <div>
                 <h2 class="red">Itineraries</h2>
                 <table class="table table-hover">
@@ -55,16 +55,20 @@ $itineraries = Itinerary::index();
                 <td> <img src='../../../" . $itinerary["image"] . "' style='width: 100px; height:100px;'> </td> 
                 <td><a href='/itinerary?id=" . $itinerary["id"] . "'><i class='fa-solid fa-eye'></i> </a></td>
                 <td><a href='/itineraries/edit?id=" . $itinerary["id"] . "'><i class='fa-solid fa-pen-to-square'></i> </a></td>
-                <td><a href='/itineraries/delete?id=" . $itinerary["id"] . "'><i class='fa-solid fa-trash'></i> </a></td>
+                
+                <td><form action='/itineraries/delete' method='POST'>
+                <input type='hidden' name='_method' value='DELETE'>
+                <input type='hidden' name='id' value='" . $itinerary["id"] . "'>
+                <button type='submit'><i class='fa-solid fa-trash'></i></button>
+                </form>
+                </td>
                 </tr>";
                         ?>
                     </tbody>
 
                 </table>
             </div>
-            <img src="/upload/" alt="">
-        </div>
-
+        </div>     
     </div>
 
 </body>
