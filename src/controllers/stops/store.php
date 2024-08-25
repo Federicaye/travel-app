@@ -60,7 +60,7 @@ VALUES ('$itinerary_id', '$locality_id', '6')";
 
   if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
-  
+  header("location: /itinerary?id=" . $itinerary_id );
   
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
