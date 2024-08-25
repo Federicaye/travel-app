@@ -97,3 +97,8 @@ header {
    
   
 }
+
+.table {
+   --bs-table-hover-bg: #50808e !important;
+   --bs-table-hover-bg: rgba(var(--bs-emphasis-color-rgb), 1.0) !important;
+}
