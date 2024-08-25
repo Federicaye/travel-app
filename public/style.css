@@ -1,5 +1,5 @@
 #logo-ti {
-   width: 100px;
+   width: 140px;
    
 }
 
@@ -23,7 +23,7 @@
 }
 
 .blu:hover {
-   color: #6f686d;
+   color:  #fc7753;
 }
 
 #admin {
@@ -45,7 +45,7 @@ body {
    position: fixed; /* FISSA COSI NON SCORRE CON LA PAGINA */
    top: 0;
    left: 0;
-   width: 250px;
+   width: 190px;
    background-color: #f2efea;
    color: rgb(0, 0, 0);
    transition: width 0.3s;
@@ -53,23 +53,26 @@ body {
 }
 .sidebar .nav-link {
    color: rgb(9, 9, 9);
+   padding: 0px;
 }
 .sidebar .nav-link:hover {
    color:#fc7753;
 }
 .main-content {
-   margin-left: 250px;
+   margin-left: 190px;
    transition: margin-left 0.3s;
    padding: 1rem;
    background-color: #f2efea;
 }
 
 .icon {
-   padding: 5px;
+   padding-right: 5px;
+   font-size: 125px;
+    
 }
 
 header {
-   margin-left: 250px;
+   margin-left: 190px;
    transition: margin-left 0.3s;
    background-color: #ffffff;
 }
@@ -99,6 +102,13 @@ header {
 }
 
 .table {
-   --bs-table-hover-bg: #50808e !important;
-   --bs-table-hover-bg: rgba(var(--bs-emphasis-color-rgb), 1.0) !important;
+   --bs-table-hover-bg: rgba(var(--bs-emphasis-color-rgb), 1) !important;
+}
+
+.table {
+   --bs-table-hover-bg:  #f2efea !important;
+}
+
+.table {
+   border-color: #fc785345 !important;
 }
