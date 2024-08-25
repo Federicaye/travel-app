@@ -20,31 +20,45 @@
     <div class=" main-content">
         <h2><?php echo $itineraryData['itinerary'][0]['title']; ?></h2>
         <p><?php echo $itineraryData['itinerary'][0]['description']; ?></p>
-        
-            <ul>
-            <?php
-
-             foreach ($itineraryData['stops'] as $stop ) {
-               echo '<li>' . $stop['name'] . ' ' . $stop['description']; '</li>';
-                
-              }
-              ?>
-              </ul>
-        
+            
         <?php var_dump($itineraryData) ?>
 
-        <h2>add a stop</h2>
+        <h3 class="red">Day-to-day plan</h3>
+        <div class="table-responsive-lg">
+            <table class="table table-hover">
+            <thead>
+                        <tr>
+                            <td>trip day</td>
+                            <td>locality</td>
+                            <td>image</td>   
+                            <td>edit</td>
+                            <td>delete</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
 
+                     foreach ($itineraryData['days'] as $day ) {
+                     echo '<tr><td>' . $day['trip_day'] . '</td>
+                     <td>'. $day['name']. '</td>
+                     <td>'. $day['description']. '</td>
+                     <td>'. $day['description']. '</td>
+                     <td>'. $day['description']. '</td></tr>' ;}
+                    ?>
+                    </tbody>
+            </table>
+        </div>
+       
         <p>
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-                Add a stop
+                Add a day
             </button>
         </p>
         <div>
             <div class="collapse collapse-vertical" id="collapseWidthExample">
                 <div class="card card-body" >
-                    <form action="/stops/store" method="POST" enctype="multipart/form-data">
+                    <form action="/days/store" method="POST" enctype="multipart/form-data">
 
                         <input type="text" hidden name="itinerary_id" value="<?php echo $itineraryData['itinerary'][0]['id']; ?>">
 

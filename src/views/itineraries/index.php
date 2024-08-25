@@ -45,7 +45,7 @@ $itineraries = Itinerary::index();
                             <td>delete</td>
                         </tr>
                     </thead>
-                    <img src="" alt="">
+            
                     <tbody>
                         <?php
                         foreach ($itineraries as $itinerary)
