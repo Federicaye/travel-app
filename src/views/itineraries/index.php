@@ -31,9 +31,8 @@ $itineraries = Itinerary::index();
 
         <div class=" main-content">
 
-            <div>
-                <h2 class="red">Itineraries</h2>
-                <div class="table-responsive-lg">
+            <h2 class="red">Itineraries</h2>
+            <div class="table-responsive-lg">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -68,9 +67,9 @@ $itineraries = Itinerary::index();
                     </tbody>
 
                 </table>
-                </div>
             </div>
-        </div>     
+
+        </div>
     </div>
 
 </body>
