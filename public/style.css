@@ -18,11 +18,11 @@
    color: #fc7753;
 }
 
-.blu {
-   color : #50808e;
+.brown {
+   color :#4A4548;
 }
 
-.blu:hover {
+.brown:hover {
    color:  #fc7753;
 }
 
@@ -54,6 +54,7 @@ body {
 .sidebar .nav-link {
    color: #4A4548;
    padding: 0px;
+ 
 }
 .sidebar .nav-link:hover {
    color:#fc7753;
@@ -67,8 +68,8 @@ body {
 
 .icon {
    padding-right: 5px;
-   font-size: 125px;
-    
+   font-size: 30px;
+   vertical-align: middle;
 }
 
 header {
