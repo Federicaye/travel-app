@@ -49,21 +49,24 @@ $day_left = array_diff($travel_days, $scheduled_days);
         <?php
 
         foreach ($itineraryData['destinations'] as $destination) {
-            echo '<img src="' . $destination['image'] . '" alt="">';
+            echo '<img src="../../../' . $destination['image'] . '" alt="">';
         }
         ?>
+        
+        <h4 class="red">Select the stages of your journey</h4>
 
-
-        <select class="js-example-basic-multiple" name="states[]" multiple="multiple" style="width: 100%;">
+        <form action="/destinations/store" method="POST">
+        <select class="js-example-basic-multiple" name="locality_id[]" multiple="multiple" style="width: 100%;">
             <?php 
             foreach ($localities as $locality) {
-            echo ' <option value="AL">'. $locality['name'] . '</option>';}
-            ?>
-            <option value="AL">Alabama</option>
-           
+            echo ' <option value="' . $locality['id']  . '">'. $locality['name'] . '</option>';}
+            ?>          
         </select>
+        <input type="hidden" name="itinerary_id" value="<?php echo $itineraryData['itinerary'][0]['id']; ?>">
+        <input type="submit" value="save">
+        </form>
 
-        <h3 class="red">Day-to-day plan</h3>
+        <h4 class="red">Day-to-day plan</h4>
         <div class="table-responsive-lg">
             <table class="table table-hover">
                 <thead>
