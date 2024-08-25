@@ -2,7 +2,7 @@
 $travel_time = $itineraryData['itinerary'][0]['travel_time'];
 $travel_days = [];
 $scheduled_days = [];
-foreach ($itineraryData['days'] as $day) {
+foreach ($itineraryData['destinations'] as $day) {
     array_push($scheduled_days, $day['trip_day']);
 }
 
@@ -20,13 +20,20 @@ $day_left = array_diff($travel_days, $scheduled_days);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- SELECT2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- BOOTSTRAP -->
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet'
         integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' crossorigin='anonymous'>
+    <!-- FONT AWESOME -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'
         integrity='sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=='
         crossorigin='anonymous' referrerpolicy='no-referrer' />
 
     <link rel="stylesheet" href="/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <!-- SELECT 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 
 <body>
@@ -46,6 +53,16 @@ $day_left = array_diff($travel_days, $scheduled_days);
         }
         ?>
 
+
+        <select class="js-example-basic-multiple" name="states[]" multiple="multiple" style="width: 100%;">
+            <?php 
+            foreach ($localities as $locality) {
+            echo ' <option value="AL">'. $locality['name'] . '</option>';}
+            ?>
+            <option value="AL">Alabama</option>
+           
+        </select>
+
         <h3 class="red">Day-to-day plan</h3>
         <div class="table-responsive-lg">
             <table class="table table-hover">
@@ -62,7 +79,7 @@ $day_left = array_diff($travel_days, $scheduled_days);
                     <?php
 
                     foreach ($itineraryData['destinations'] as $destination) {
-                        echo '<tr><td>' . $day['trip_day'] . '</td>';
+                        echo '<tr><td>' . $destination['trip_day'] . '</td>';
                     }
                     ?>
                 </tbody>
@@ -126,6 +143,9 @@ $day_left = array_diff($travel_days, $scheduled_days);
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="/script.js" type="module"> </script>
+    <script>$(document).ready(function () {
+            $('.js-example-basic-multiple').select2();
+        });</script>
 </body>
 
 </html>

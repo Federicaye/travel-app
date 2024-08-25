@@ -23,6 +23,7 @@
 
     <form action="/localities/store" method="POST" enctype="multipart/form-data">
 
+
       <div class="mb-3">
         <label for="locality_name" class="form-label">locality</label>
         <input type="text" id="locality_name" list="locality" name="locality_name" class="form-control">

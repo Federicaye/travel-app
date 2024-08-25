@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../../db/connection.php';
+include_once __DIR__ . '/../../db/connection.php';
 
 class itinerary
 {

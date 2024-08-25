@@ -24,3 +24,5 @@ $router->post('/days/store', '../src/controllers/days/store.php');
 $router->post('/localities/store', '../src/controllers/localities/store.php');
 $router->get('/localities/list','../src/views/localities/index.php');
 $router->get('/localities/add','../src/views/localities/add.php');
+$router->get('/locality', '../src/views/localities/show.php');
+$router->get('/prova', '../src/views/localities/prova.php');
