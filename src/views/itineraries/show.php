@@ -6,11 +6,11 @@ foreach ($itineraryData['days'] as $day) {
     array_push($scheduled_days, $day['trip_day']);
 }
 
-for ($i=1; $i<= $travel_time; $i++) {
+for ($i = 1; $i <= $travel_time; $i++) {
     array_push($travel_days, $i);
 }
 
-$day_left= array_diff($travel_days, $scheduled_days);
+$day_left = array_diff($travel_days, $scheduled_days);
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +39,12 @@ $day_left= array_diff($travel_days, $scheduled_days);
         <p><?php echo $itineraryData['itinerary'][0]['description']; ?></p>
 
         <?php var_dump($itineraryData) ?>
+        <?php
+
+        foreach ($itineraryData['destinations'] as $destination) {
+            echo '<img src="' . $destination['image'] . '" alt="">';
+        }
+        ?>
 
         <h3 class="red">Day-to-day plan</h3>
         <div class="table-responsive-lg">
@@ -55,12 +61,8 @@ $day_left= array_diff($travel_days, $scheduled_days);
                 <tbody>
                     <?php
 
-                    foreach ($itineraryData['days'] as $day) {
-                        echo '<tr><td>' . $day['trip_day'] . '</td>
-                     <td>' . $day['name'] . '</td>
-                     <td>' . $day['description'] . '</td>
-                     <td>' . $day['description'] . '</td>
-                     <td>' . $day['description'] . '</td></tr>';
+                    foreach ($itineraryData['destinations'] as $destination) {
+                        echo '<tr><td>' . $day['trip_day'] . '</td>';
                     }
                     ?>
                 </tbody>
@@ -103,7 +105,7 @@ $day_left= array_diff($travel_days, $scheduled_days);
                         <div class="mb-3">
                             <label for="trip_day" class="form-label">trip day</label>
                             <select name="trip_day">
-                                <?php 
+                                <?php
                                 foreach ($day_left as $day) {
                                     echo "<option value='" . $day . "'> " . $day . "</option>";
                                 }

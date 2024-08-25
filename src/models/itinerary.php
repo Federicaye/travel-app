@@ -24,11 +24,11 @@ class itinerary
         $itinerary = $itinerary->fetch_all(MYSQLI_ASSOC);
 
 
-        $days = self::$conn->query("SELECT * FROM days INNER JOIN localities ON days.locality_id=localities.id WHERE itinerary_id = $id");
-        $days = $days->fetch_all(MYSQLI_ASSOC);
+        $destinations = self::$conn->query("SELECT * FROM trip_destination INNER JOIN localities ON trip_destination.locality_id=localities.id WHERE itinerary_id = $id");
+        $destinations = $destinations->fetch_all(MYSQLI_ASSOC);
         return [
             'itinerary' => $itinerary,
-            'days' => $days
+            'destinations' => $destinations
         ];
     }
 
