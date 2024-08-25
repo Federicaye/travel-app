@@ -19,6 +19,7 @@ if ($conn->connect_error) {
 $itinerary_id = $_POST['itinerary_id'];
 $locality_name = $_POST['locality_name'];
 $locality_description = $_POST['locality_description'];
+$trip_day = $_POST['trip_day'];
 /* $image = $target_file; */
 
 $client = new Client([
@@ -56,7 +57,7 @@ VALUES ('$locality_name', '$locality_description', '$lon', '$lat', 'image')";
 } 
  
 $sql = "INSERT INTO days ( itinerary_id, locality_id, trip_day)
-VALUES ('$itinerary_id', '$locality_id', '6')";
+VALUES ('$itinerary_id', '$locality_id', '$trip_day')";
 
   if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";

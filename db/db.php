@@ -24,6 +24,7 @@ $conn->select_db('travelapp');
 $sql = "CREATE TABLE IF NOT EXISTS itineraries (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
+    travel_time TINYINT UNSIGNED NOT NULL,
     image VARCHAR(255) NOT NULL,
     description TEXT
     )";
@@ -71,7 +72,7 @@ $sql = "CREATE TABLE IF NOT EXISTS days (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   itinerary_id INT UNSIGNED NOT NULL,
   locality_id INT UNSIGNED NOT NULL,
-  trip_day TINYINT UNSIGNED NOT NULL,
+  trip_day TINYINT UNSIGNED UNIQUE NOT NULL,
   CONSTRAINT FK_itinerary FOREIGN KEY (itinerary_id) REFERENCES itineraries(id) ON DELETE CASCADE,
   CONSTRAINT FK_locality FOREIGN KEY (locality_id) REFERENCES localities(id) ON DELETE CASCADE
 )";

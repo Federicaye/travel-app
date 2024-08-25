@@ -32,11 +32,12 @@ class itinerary
         ];
     }
 
-    public static function update($title, $description, $image, $id)
+    public static function update($title, $travel_time, $description, $image, $id)
     {
         self::setConnection();
         $sql = "UPDATE itineraries 
         SET title='$title', 
+        travel_time = '$travel_time',
         description='$description',
         image= '$image'
         WHERE id=$id";
@@ -57,10 +58,10 @@ class itinerary
         self::$conn->close();
     }
 
-    public static function store($title, $description, $image)
+    public static function store($title, $travel_time, $description, $image)
     {
         self::setConnection();
-        $sql = "INSERT INTO itineraries (title, description, image) VALUES ('$title', '$description', '$image')";
+        $sql = "INSERT INTO itineraries (title, travel_time, description, image) VALUES ('$title', '$travel_time', '$description', '$image')";
 
         if (self::$conn->query($sql) === TRUE) {
 

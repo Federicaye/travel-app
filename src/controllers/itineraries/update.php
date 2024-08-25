@@ -60,8 +60,9 @@ $id = $_POST['id'];
   $title = $_POST['title'];
   $description = $_POST['description'];
   $image = $target_file;
+  $travel_time = $_POST['travel_time'];
  
-  Itinerary::update($title, $description, $image, $id);
+  Itinerary::update($title, $travel_time, $description, $image, $id);
   header("location: /itinerary?id=" . $id );
  
 }

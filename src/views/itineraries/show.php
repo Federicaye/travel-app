@@ -1,3 +1,18 @@
+<?php
+$travel_time = $itineraryData['itinerary'][0]['travel_time'];
+$travel_days = [];
+$scheduled_days = [];
+foreach ($itineraryData['days'] as $day) {
+    array_push($scheduled_days, $day['trip_day']);
+}
+
+for ($i=1; $i<= $travel_time; $i++) {
+    array_push($travel_days, $i);
+}
+
+$day_left= array_diff($travel_days, $scheduled_days);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +22,9 @@
     <title>Document</title>
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet'
         integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' crossorigin='anonymous'>
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' integrity='sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==' crossorigin='anonymous' referrerpolicy='no-referrer' />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'
+        integrity='sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=='
+        crossorigin='anonymous' referrerpolicy='no-referrer' />
 
     <link rel="stylesheet" href="/style.css">
 </head>
@@ -20,35 +37,36 @@
     <div class=" main-content">
         <h2><?php echo $itineraryData['itinerary'][0]['title']; ?></h2>
         <p><?php echo $itineraryData['itinerary'][0]['description']; ?></p>
-            
+
         <?php var_dump($itineraryData) ?>
 
         <h3 class="red">Day-to-day plan</h3>
         <div class="table-responsive-lg">
             <table class="table table-hover">
-            <thead>
-                        <tr>
-                            <td>trip day</td>
-                            <td>locality</td>
-                            <td>image</td>   
-                            <td>edit</td>
-                            <td>delete</td>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <thead>
+                    <tr>
+                        <td>trip day</td>
+                        <td>locality</td>
+                        <td>image</td>
+                        <td>edit</td>
+                        <td>delete</td>
+                    </tr>
+                </thead>
+                <tbody>
                     <?php
 
-                     foreach ($itineraryData['days'] as $day ) {
-                     echo '<tr><td>' . $day['trip_day'] . '</td>
-                     <td>'. $day['name']. '</td>
-                     <td>'. $day['description']. '</td>
-                     <td>'. $day['description']. '</td>
-                     <td>'. $day['description']. '</td></tr>' ;}
+                    foreach ($itineraryData['days'] as $day) {
+                        echo '<tr><td>' . $day['trip_day'] . '</td>
+                     <td>' . $day['name'] . '</td>
+                     <td>' . $day['description'] . '</td>
+                     <td>' . $day['description'] . '</td>
+                     <td>' . $day['description'] . '</td></tr>';
+                    }
                     ?>
-                    </tbody>
+                </tbody>
             </table>
         </div>
-       
+
         <p>
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
@@ -57,10 +75,11 @@
         </p>
         <div>
             <div class="collapse collapse-vertical" id="collapseWidthExample">
-                <div class="card card-body" >
+                <div class="card card-body">
                     <form action="/days/store" method="POST" enctype="multipart/form-data">
 
-                        <input type="text" hidden name="itinerary_id" value="<?php echo $itineraryData['itinerary'][0]['id']; ?>">
+                        <input type="text" hidden name="itinerary_id"
+                            value="<?php echo $itineraryData['itinerary'][0]['id']; ?>">
 
 
                         <div class="mb-3">
@@ -81,6 +100,17 @@
                             <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
                         </div>
 
+                        <div class="mb-3">
+                            <label for="trip_day" class="form-label">trip day</label>
+                            <select name="trip_day">
+                                <?php 
+                                foreach ($day_left as $day) {
+                                    echo "<option value='" . $day . "'> " . $day . "</option>";
+                                }
+                                ?>
+
+                            </select>
+                        </div>
 
                         <input type="submit" value="save" name="submit">
 

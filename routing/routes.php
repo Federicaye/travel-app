@@ -19,4 +19,4 @@ $router->get('/localities/list','../src/views/localities/index.php');
 
 //DAYS
 //ADD
-$router->post('/stops/store', '../src/controllers/stops/store.php');
+$router->post('/days/store', '../src/controllers/days/store.php');

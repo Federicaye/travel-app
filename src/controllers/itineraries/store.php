@@ -58,10 +58,11 @@ if ($uploadOk == 0) {
 if ($uploadOk) {
 
   $title = $_POST['title'];
+  $travel_time = $_POST['travel_time'];
   $description = $_POST['description'];
   $image = $target_file;
  
-  $last_id = Itinerary::store($title, $description, $image);
+  $last_id = Itinerary::store($title, $travel_time, $description, $image);
   header("location: /itinerary?id=" . $last_id );
  
 }

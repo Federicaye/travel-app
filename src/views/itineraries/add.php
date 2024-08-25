@@ -28,6 +28,10 @@
         <input type="text" class="form-control" id="title" placeholder="title" name="title">
       </div>
       <div class="mb-3">
+      <label for="travel_time" class="form-label">Travel time</label>
+      <input type="number" class="form-control" name="travel_time" min="1" max="60">
+      </div>
+      <div class="mb-3">
         <label for="description" class="form-label">description</label>
         <textarea class="form-control" id="description" rows="3" name="description"></textarea>
       </div>
