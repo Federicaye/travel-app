@@ -34,13 +34,12 @@ class itinerary
 
     public static function update($title, $description, $image, $id)
     {
-       
+        self::setConnection();
         $sql = "UPDATE itineraries 
         SET title='$title', 
         description='$description',
-        image= '$image',
+        image= '$image'
         WHERE id=$id";
-        self::setConnection();
         self::$conn->query($sql);
     }
 

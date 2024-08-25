@@ -48,15 +48,13 @@ var_dump($itineraryData);
 
       </div>
       <input type="submit" value="save" name="submit">
+      <!-- aggiungi bottone annulla -->
+  
+
+     <input type='hidden' name='_method' value='PATCH'>
+     <input type='hidden' name='id' value='<?php echo $itineraryData['itinerary'][0]['id']?>'>
+    </form>
   </div>
-
-  <input type='hidden' name='_method' value='PATCH'>
-  <input type='hidden' name='id' value='" . $itinerary["id"] . "'>
-
-
-
-  </form>
-
 </body>
 
 </html>
