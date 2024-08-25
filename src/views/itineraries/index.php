@@ -33,6 +33,7 @@ $itineraries = Itinerary::index();
 
             <div>
                 <h2 class="red">Itineraries</h2>
+                <div class="table-responsive-lg">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -53,13 +54,13 @@ $itineraries = Itinerary::index();
                 <td>" . $itinerary["title"] . "</td> 
                 <td>" . $itinerary["description"] . "</td> 
                 <td> <img src='../../../" . $itinerary["image"] . "' style='width: 100px; height:100px;'> </td> 
-                <td><a href='/itinerary?id=" . $itinerary["id"] . "'><i class='fa-solid fa-eye'></i> </a></td>
-                <td><a href='/itineraries/edit?id=" . $itinerary["id"] . "'><i class='fa-solid fa-pen-to-square'></i> </a></td>
+                <td><a  href='/itinerary?id=" . $itinerary["id"] . "'><i class='fa-solid fa-eye blu'></i> </a></td>
+                <td><a  href='/itineraries/edit?id=" . $itinerary["id"] . "'><i class='fa-solid fa-pen-to-square blu'></i> </a></td>
 
                 <td><form action='/itineraries/delete' method='POST'>
                 <input type='hidden' name='_method' value='DELETE'>
                 <input type='hidden' name='id' value='" . $itinerary["id"] . "'>
-                <button type='submit'><i class='fa-solid fa-trash'></i></button>
+                <button type='submit'><i class='fa-solid fa-trash blu'></i></button>
                 </form>
                 </td>
                 </tr>";
@@ -67,6 +68,7 @@ $itineraries = Itinerary::index();
                     </tbody>
 
                 </table>
+                </div>
             </div>
         </div>     
     </div>

@@ -29,7 +29,7 @@ var_dump($itineraryData);
   include __DIR__ . '/../header.php';
   ?>
   <div class="main-content">
-    <h2>Add trip</h2>
+    <h2 class="red">Edit itinerary</h2>
     <form action="/itineraries/update" method="POST" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
