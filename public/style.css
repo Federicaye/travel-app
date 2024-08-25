@@ -47,12 +47,12 @@ body {
    left: 0;
    width: 190px;
    background-color: #f2efea;
-   color: rgb(0, 0, 0);
+   color: #4A4548;
    transition: width 0.3s;
    overflow: auto;
 }
 .sidebar .nav-link {
-   color: rgb(9, 9, 9);
+   color: #4A4548;
    padding: 0px;
 }
 .sidebar .nav-link:hover {
@@ -100,9 +100,10 @@ header {
    
   
 }
-
+/* 
 .table {
    --bs-table-hover-bg: rgba(var(--bs-emphasis-color-rgb), 1) !important;
+   color: #4A4548;
 }
 
 .table {
@@ -111,4 +112,12 @@ header {
 
 .table {
    border-color: #fc785345 !important;
+} */
+
+.table {
+   --bs-table-hover-bg: rgba(var(--bs-emphasis-color-rgb), 1) !important;
+   --bs-table-color: #4A4548 !important;
+   --bs-table-hover-color: #4A4548 !important;
+   border-color: #fc785345 !important;
+   --bs-table-hover-bg:  #f2efea !important;
 }
