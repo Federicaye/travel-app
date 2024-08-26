@@ -47,7 +47,7 @@ class destination
     public static function delete($id)
     {
         self::setConnection();
-        $sql = "DELETE FROM itineraries WHERE id=$id";
+        $sql = "DELETE FROM trip_destination WHERE id=$id";
 
         if (self::$conn->query($sql) === TRUE) {
             echo "Record deleted successfully";

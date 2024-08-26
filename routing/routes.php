@@ -27,3 +27,4 @@ $router->get('/localities/add','../src/views/localities/add.php');
 $router->get('/locality', '../src/views/localities/show.php');
 
 $router->post('/destinations/store', '../src/controllers/destinations/store.php');
+$router->delete('/destinations/delete', '../src/controllers/destinations/delete.php');

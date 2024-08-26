@@ -50,16 +50,32 @@ $day_left = array_diff($travel_days, $scheduled_days);
     <div class=" main-content">
 
         <h2><?php echo $itineraryData['itinerary'][0]['title']; ?></h2>
-        <p><?php echo $itineraryData['itinerary'][0]['description']; ?></p>
+        <h5><?php echo $itineraryData['itinerary'][0]['description']; ?></h5>
 
         <?php var_dump($itineraryData) ?>
         <h4 class="red">Locations visited</h4>
-        <?php
-        foreach ($itineraryData['destinations'] as $destination) {
-            echo '<img src="../../../' . $destination['image'] . '" alt="" class="localityImage">';
-        }
-        ?>
-
+        <div class="d-flex gap-3">
+            <?php
+            foreach ($itineraryData['destinations'] as $destination) {
+              echo '<div class="card" style="width: 18rem;">
+              <img src="../../../' . $destination['image'] . '" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">'. $destination['name'] . '</h5>
+                <p class="card-text">'. $destination['description'] . '</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <form action="/destinations/delete" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="id" value="' . $destination["id"] . '">
+                <input type="hidden" name="id_itinerary_show" value="' . $itineraryData['itinerary'][0]['id'] . '">
+                <button type="submit"><i class="fa-solid fa-trash brown"></i></button>
+                </form>
+               </div>
+               </div>';
+            }
+            ?>
+        </div>
+        
+        <!-- AGGIUNGI DESTINAZIONI -->
         <h4 class="red">Select the stages of your journey</h4>
 
         <form action="/destinations/store" method="POST">
@@ -73,7 +89,7 @@ $day_left = array_diff($travel_days, $scheduled_days);
             <input type="hidden" name="itinerary_id" value="<?php echo $itineraryData['itinerary'][0]['id']; ?>">
             <input type="submit" value="save">
         </form>
-
+        <!-- TABELLA DELLE GIORNATE -->
         <h4 class="red">Day-to-day plan</h4>
         <div class="table-responsive-lg">
             <table class="table table-hover">
@@ -87,20 +103,20 @@ $day_left = array_diff($travel_days, $scheduled_days);
                     </tr>
                 </thead>
                 <tbody>
-                      <?php
+                    <?php
 
                     foreach ($days as $i => $day) {
                         echo '<tr><td>' . $day['trip_day'] . '</td>
-                        <td>'. $day['locality_name'] .'</td>
-                        <td>' .  $day['locality_name']. '</td>
-                        <td>' .  $day['locality_name']. '</td>
-                        <td>' .  $day['locality_name']. '</td></tr>';
+                        <td>' . $day['locality_name'] . '</td>
+                        <td>' . $day['locality_name'] . '</td>
+                        <td>' . $day['locality_name'] . '</td>
+                        <td>' . $day['locality_name'] . '</td></tr>';
                     }
-                    ?> 
+                    ?>
                 </tbody>
             </table>
         </div>
-
+        <!-- AGGIUNGI UNA GIORNATA -->
         <p>
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
@@ -118,7 +134,7 @@ $day_left = array_diff($travel_days, $scheduled_days);
 
                                 <?php
                                 foreach ($itineraryData['destinations'] as $i => $destination) {
-                                    echo '<option value="' . $itineraryData['destinations'][$i]['locality_id'] . '">' . $itineraryData['destinations'][$i]['name'] . ' </option>';
+                                    echo '<option value="' . $itineraryData['destinations'][$i]['id'] . '">' . $itineraryData['destinations'][$i]['name'] . ' </option>';
                                 }
                                 ?>
 
