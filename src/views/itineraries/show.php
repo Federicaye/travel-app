@@ -60,7 +60,7 @@ $day_left = array_diff($travel_days, $scheduled_days);
         }
         ?>
 
-        <h6 class="red">Select the stages of your journey</h6>
+        <h4 class="red">Select the stages of your journey</h4>
 
         <form action="/destinations/store" method="POST">
             <select class="js-example-basic-multiple" name="locality_id[]" multiple="multiple" style="width: 100%;">
