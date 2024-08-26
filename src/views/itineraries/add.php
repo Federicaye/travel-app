@@ -25,11 +25,11 @@
     <form action="/itineraries/store" method="POST" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" id="title" placeholder="title" name="title">
+        <input type="text" class="form-control" id="title" placeholder="title" name="title" required>
       </div>
       <div class="mb-3">
       <label for="travel_time" class="form-label">Travel time</label>
-      <input type="number" class="form-control" name="travel_time" min="1" max="60">
+      <input type="number" class="form-control" name="travel_time" min="1" max="60" required>
       </div>
       <div class="mb-3">
         <label for="description" class="form-label">description</label>

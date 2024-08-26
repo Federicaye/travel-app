@@ -15,8 +15,11 @@
                 <a class="nav-link" href="/itineraries/add"><i class="fa-regular fa-square-plus icon"></i>Add an itinerary</a>
             </li>
             <hr>
+            <li class="nav-item uppercase">
+                localities
+            </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa-solid fa-location-dot icon"></i>Localities</a>
+                <a class="nav-link" href="/localities/list"><i class="fa-solid fa-location-dot icon"></i>Localities</a>
             </li>
             <hr>
             <li class="nav-item">

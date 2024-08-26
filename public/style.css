@@ -68,6 +68,9 @@ body {
    padding: 1rem;
    background-color: #f2efea;
 }
+.uppercase {
+text-transform: uppercase;
+}
 
 .icon {
    padding-right: 5px;
