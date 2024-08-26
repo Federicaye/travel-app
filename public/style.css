@@ -77,7 +77,37 @@ header {
    transition: margin-left 0.3s;
    background-color: #ffffff;
 }
+/* CARD DESTINATIONS */
+.localities-card {
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+   transition: 0.3s;
+   width: calc(100%/4 - 10px);
+   background-color: white;
+   border-radius: 5px;
+ }
+ 
+ .localities-card:hover {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+ }
+ 
+ .localities-container {
+   display: flex;
+   gap: 10px;
+   flex-wrap: wrap;
+   
+ }
 
+.localities-img {
+   width: 100%;
+   height: 100px;
+   object-fit: cover;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+}
+
+
+
+/* MEDIA QUERY */
 
 @media (max-width: 992px) {
    .sidebar {
@@ -99,9 +129,16 @@ header {
      
    }
    
-  
+   .localities-card {
+      width: calc(100%/2 - 10px);
+   }
 }
 
+@media (max-width: 600px) {
+   .localities-card {
+      width: 100%;
+   }
+}
 
 .table {
    --bs-table-hover-bg: rgba(var(--bs-emphasis-color-rgb), 1) !important;
@@ -114,4 +151,8 @@ header {
 .localityImage {
    width: 180px;
    height: 180px;
+}
+
+.card {
+width: 30%;
 }
