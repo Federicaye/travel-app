@@ -2,7 +2,7 @@
 
 include_once __DIR__ . '/../../db/connection.php';
 
-class itinerary
+class destination
 {
     private static $conn;
 
@@ -10,11 +10,11 @@ class itinerary
     {
         self::$conn = Database::getConnection();
     }
-    public static function index()
+    public static function index($id)
     {
         self::setConnection();
-        $itineraries = self::$conn->query("SELECT * FROM itineraries");
-        return $itineraries->fetch_all(MYSQLI_ASSOC);
+        $destinations = self::$conn->query("SELECT * FROM trip_destination WHERE itinerary_id = $id" );
+        return $destinations->fetch_all(MYSQLI_ASSOC);
     }
     public static function show($id)
     {
@@ -24,13 +24,7 @@ class itinerary
         $itinerary = $itinerary->fetch_all(MYSQLI_ASSOC);
 
 
-        $destinations = self::$conn->query("SELECT trip_destination.id,
-        trip_destination.itinerary_id,
-        trip_destination.locality_id,
-        localities.name,
-        localities.description,
-        localities.image
-        FROM trip_destination INNER JOIN localities ON trip_destination.locality_id=localities.id WHERE itinerary_id = $id");
+        $destinations = self::$conn->query("SELECT * FROM trip_destination INNER JOIN localities ON trip_destination.locality_id=localities.id WHERE itinerary_id = $id");
         $destinations = $destinations->fetch_all(MYSQLI_ASSOC);
         return [
             'itinerary' => $itinerary,
@@ -53,7 +47,7 @@ class itinerary
     public static function delete($id)
     {
         self::setConnection();
-        $sql = "DELETE FROM itineraries WHERE id=$id";
+        $sql = "DELETE FROM trip_destination WHERE id=$id";
 
         if (self::$conn->query($sql) === TRUE) {
             echo "Record deleted successfully";
@@ -64,15 +58,16 @@ class itinerary
         self::$conn->close();
     }
 
-    public static function store($title, $travel_time, $description, $image)
+    public static function store($itinerary_id, $locality_id)
     {
+        var_dump($_POST['locality_id']);
         self::setConnection();
-        $sql = "INSERT INTO itineraries (title, travel_time, description, image) VALUES ('$title', '$travel_time', '$description', '$image')";
-
-        if (self::$conn->query($sql) === TRUE) {
-
-            $last_id = self::$conn->insert_id;
-            return $last_id;
+        foreach ($locality_id as $id) {
+            $integer = (int)$id;
+            $sql = "INSERT INTO trip_destination (itinerary_id, locality_id) VALUES ('$itinerary_id', '$id')";
+            self::$conn->query($sql) === TRUE;
         }
+
+        
     }
 }

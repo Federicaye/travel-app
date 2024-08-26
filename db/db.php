@@ -52,29 +52,27 @@ if ($conn->query($sql) === TRUE) {
   echo "Error creating table: " . $conn->error;
 }
 
-$sql = "CREATE TABLE IF NOT EXISTS hotels (
+$sql = "CREATE TABLE IF NOT EXISTS trip_destination (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  itinerary_id INT UNSIGNED NOT NULL,
   locality_id INT UNSIGNED NOT NULL,
-  name VARCHAR(255) NOT NULL,
-  address VARCHAR(255) NOT NULL,
-  image VARCHAR(255) NOT NULL,
-  FOREIGN KEY (locality_id) REFERENCES localities(id) ON DELETE CASCADE
-  
-  )";
+ /*  trip_day TINYINT UNSIGNED UNIQUE NOT NULL, */
+  CONSTRAINT FK_itinerary FOREIGN KEY (itinerary_id) REFERENCES itineraries(id) ON DELETE CASCADE,
+  CONSTRAINT FK_locality FOREIGN KEY (locality_id) REFERENCES localities(id) ON DELETE CASCADE
+)";
 
 if ($conn->query($sql) === TRUE) {
-  echo "Table hotels created successfully";
+  echo "Tabella di giunzione trip_datination creata con successo<br>";
 } else {
-  echo "Error creating table: " . $conn->error;
+  echo "Errore nella creazione della tabella di giunzione trip_dastination: " . $conn->error . "<br>";
 }
 
 $sql = "CREATE TABLE IF NOT EXISTS days (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  itinerary_id INT UNSIGNED NOT NULL,
-  locality_id INT UNSIGNED NOT NULL,
+  trip_destination_id INT UNSIGNED NOT NULL,
   trip_day TINYINT UNSIGNED UNIQUE NOT NULL,
-  CONSTRAINT FK_itinerary FOREIGN KEY (itinerary_id) REFERENCES itineraries(id) ON DELETE CASCADE,
-  CONSTRAINT FK_locality FOREIGN KEY (locality_id) REFERENCES localities(id) ON DELETE CASCADE
+  CONSTRAINT FK_trip_destination FOREIGN KEY (trip_destination_id) REFERENCES trip_destination(id) ON DELETE CASCADE
+  
 )";
 
 if ($conn->query($sql) === TRUE) {
@@ -82,4 +80,8 @@ if ($conn->query($sql) === TRUE) {
 } else {
   echo "Errore nella creazione della tabella di giunzione days: " . $conn->error . "<br>";
 }
+
+
+
+
 

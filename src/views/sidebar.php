@@ -18,6 +18,10 @@
             </li>
             <hr>
             <li class="nav-item">
+                <a class="nav-link" href="/localities/add"><i class="fa-solid fa-location-dot icon"></i>Add localities</a>
+            </li>
+            <hr>
+            <li class="nav-item">
                 <a class="nav-link" href="#">Contact</a>
             </li>
             <hr>

@@ -101,19 +101,7 @@ header {
    
   
 }
-/* 
-.table {
-   --bs-table-hover-bg: rgba(var(--bs-emphasis-color-rgb), 1) !important;
-   color: #4A4548;
-}
 
-.table {
-   --bs-table-hover-bg:  #f2efea !important;
-}
-
-.table {
-   border-color: #fc785345 !important;
-} */
 
 .table {
    --bs-table-hover-bg: rgba(var(--bs-emphasis-color-rgb), 1) !important;
@@ -121,4 +109,9 @@ header {
    --bs-table-hover-color: #4A4548 !important;
    border-color: #fc785345 !important;
    --bs-table-hover-bg:  #f2efea !important;
+}
+
+.localityImage {
+   width: 180px;
+   height: 180px;
 }
