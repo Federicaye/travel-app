@@ -1,8 +1,12 @@
 <?php
+include __DIR__ . '/../../models/day.php';
+$days = day::index($itineraryData['itinerary'][0]['id']);
+var_dump($days);
+
 $travel_time = $itineraryData['itinerary'][0]['travel_time'];
 $travel_days = [];
 $scheduled_days = [];
-foreach ($itineraryData['destinations'] as $day) {
+foreach ($days as $day) {
     array_push($scheduled_days, $day['trip_day']);
 }
 
@@ -11,6 +15,8 @@ for ($i = 1; $i <= $travel_time; $i++) {
 }
 
 $day_left = array_diff($travel_days, $scheduled_days);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -32,38 +38,40 @@ $day_left = array_diff($travel_days, $scheduled_days);
 
     <link rel="stylesheet" href="/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-   <!-- SELECT 2 -->
+    <!-- SELECT 2 -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 
 <body>
     <?php
-    include __DIR__ . '/../sidebar.php';
+    /*  include __DIR__ . '/../sidebar.php'; */
     include __DIR__ . '/../header.php';
     ?>
     <div class=" main-content">
+
         <h2><?php echo $itineraryData['itinerary'][0]['title']; ?></h2>
         <p><?php echo $itineraryData['itinerary'][0]['description']; ?></p>
 
         <?php var_dump($itineraryData) ?>
+        <h4 class="red">Locations visited</h4>
         <?php
-
         foreach ($itineraryData['destinations'] as $destination) {
-            echo '<img src="../../../' . $destination['image'] . '" alt="">';
+            echo '<img src="../../../' . $destination['image'] . '" alt="" class="localityImage">';
         }
         ?>
-        
-        <h4 class="red">Select the stages of your journey</h4>
+
+        <h6 class="red">Select the stages of your journey</h6>
 
         <form action="/destinations/store" method="POST">
-        <select class="js-example-basic-multiple" name="locality_id[]" multiple="multiple" style="width: 100%;">
-            <?php 
-            foreach ($localities as $locality) {
-            echo ' <option value="' . $locality['id']  . '">'. $locality['name'] . '</option>';}
-            ?>          
-        </select>
-        <input type="hidden" name="itinerary_id" value="<?php echo $itineraryData['itinerary'][0]['id']; ?>">
-        <input type="submit" value="save">
+            <select class="js-example-basic-multiple" name="locality_id[]" multiple="multiple" style="width: 100%;">
+                <?php
+                foreach ($localities as $locality) {
+                    echo ' <option value="' . $locality['id'] . '">' . $locality['name'] . '</option>';
+                }
+                ?>
+            </select>
+            <input type="hidden" name="itinerary_id" value="<?php echo $itineraryData['itinerary'][0]['id']; ?>">
+            <input type="submit" value="save">
         </form>
 
         <h4 class="red">Day-to-day plan</h4>
@@ -73,18 +81,22 @@ $day_left = array_diff($travel_days, $scheduled_days);
                     <tr>
                         <td>trip day</td>
                         <td>locality</td>
-                        <td>image</td>
+                        <td>activities</td>
                         <td>edit</td>
                         <td>delete</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
+                      <?php
 
-                    foreach ($itineraryData['destinations'] as $destination) {
-                        echo '<tr><td>' . $destination['trip_day'] . '</td>';
+                    foreach ($days as $i => $day) {
+                        echo '<tr><td>' . $day['trip_day'] . '</td>
+                        <td>'. $day['locality_name'] .'</td>
+                        <td>' .  $day['locality_name']. '</td>
+                        <td>' .  $day['locality_name']. '</td>
+                        <td>' .  $day['locality_name']. '</td></tr>';
                     }
-                    ?>
+                    ?> 
                 </tbody>
             </table>
         </div>
@@ -100,27 +112,19 @@ $day_left = array_diff($travel_days, $scheduled_days);
                 <div class="card card-body">
                     <form action="/days/store" method="POST" enctype="multipart/form-data">
 
-                        <input type="text" hidden name="itinerary_id"
-                            value="<?php echo $itineraryData['itinerary'][0]['id']; ?>">
-
-
                         <div class="mb-3">
-                            <label for="locality_name" class="form-label">locality</label>
-                            <input type="text" id="locality_name" list="locality" name="locality_name"
-                                class="form-control">
-                            <datalist id="locality">
+                            <label for="trip_destination_id" class="form-label">destination</label>
+                            <select name="trip_destination_id" id="trip_destination_id">
 
-                            </datalist>
+                                <?php
+                                foreach ($itineraryData['destinations'] as $i => $destination) {
+                                    echo '<option value="' . $itineraryData['destinations'][$i]['locality_id'] . '">' . $itineraryData['destinations'][$i]['name'] . ' </option>';
+                                }
+                                ?>
+
+                            </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="locality_description" class="form-label">description</label>
-                            <textarea class="form-control" id="locality_description" rows="3"
-                                name="locality_description"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="image" class="form-label">image</label>
-                            <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
-                        </div>
+
 
                         <div class="mb-3">
                             <label for="trip_day" class="form-label">trip day</label>
@@ -133,7 +137,7 @@ $day_left = array_diff($travel_days, $scheduled_days);
 
                             </select>
                         </div>
-
+                        <input type="hidden" value="<?php echo $itineraryData['itinerary'][0]['id'] ?>" name="id">
                         <input type="submit" value="save" name="submit">
 
                     </form>
