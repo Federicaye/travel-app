@@ -59,23 +59,23 @@ $day_left = array_diff($travel_days, $scheduled_days);
 
             <div class="localities-container">
                 <?php
-        foreach ($itineraryData['destinations'] as $destination) {
-            echo '<div class="localities-card">
-            <img class="localities-img" src="../../../' . $destination['image'] . '" alt="Avatar">
-            <div class="">
-                <h4><b>' . $destination['name'] . '</b></h4>
-                <p>' . $destination['description'] . '</p>
+                  foreach ($itineraryData['destinations'] as $destination) {
+                  echo '<div class="localities-card">
+                  <img class="localities-img" src="../../../' . $destination['image'] . '" alt="Avatar">
+                  <div class="">
+                  <h4><b>' . $destination['name'] . '</b></h4>
+                   <p>' . $destination['description'] . '</p>
                  <form action="/destinations/delete" method="POST">
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="hidden" name="id" value="' . $destination["id"] . '">
-            <input type="hidden" name="id_itinerary_show" value="' . $itineraryData['itinerary'][0]['id'] . '">
-            <button type="submit"><i class="fa-solid fa-trash brown"></i></button>
-            </form>
-            </div>
-        </div>';
-        }
-        ?>
-        </div>
+                  <input type="hidden" name="_method" value="DELETE">
+                  <input type="hidden" name="id" value="' . $destination["id"] . '">
+                  <input type="hidden" name="id_itinerary_show" value="' . $itineraryData['itinerary'][0]['id'] . '">
+                   <button type="submit"><i class="fa-solid fa-trash brown"></i></button>
+                   </form>
+                   </div>
+                  </div>';
+                  }
+                ?>
+             </div>
 
         <!-- AGGIUNGI DESTINAZIONI -->
         <h4 class="red">Select the stages of your journey</h4>
