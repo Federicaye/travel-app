@@ -62,6 +62,7 @@ class destination
     {
         self::setConnection();
         $destinationsAdded= [];
+        $destinationsId= [];
         $canAdd = true;
         foreach ($locality_id as $id) {
             $destination = [];
@@ -72,18 +73,20 @@ class destination
             if ($destination && $destination->num_rows > 0) {
                 $destination= $destination->fetch_all(MYSQLI_ASSOC);
                 array_push($destinationsAdded, $destination[0]['name']); 
+                array_push($destinationsId, $destination[0]['locality_id']); 
                 $canAdd = false;
                 
             }
         }
        
-        if( $canAdd) {
         foreach ($locality_id as $id) {
             $id = (int)$id;
+            if (!in_array($id, $destinationsId) ) {
             $sql = "INSERT INTO trip_destination (itinerary_id, locality_id) VALUES ('$itinerary_id', '$id')";
             self::$conn->query($sql);
+            }
         }
-    }else return $destinationsAdded;
+    return $destinationsAdded;
         
     }
 }
