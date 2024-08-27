@@ -54,6 +54,10 @@ body {
    transition: width 0.3s;
    overflow: auto;
 }
+
+.nav-item {
+   padding: 8px 0px 8px 0px;
+}
 .sidebar .nav-link {
    color: #4A4548;
    padding: 0px;
@@ -147,6 +151,13 @@ header {
    
    .localities-card {
       width: calc(100%/2 - 10px);
+   }
+   .nav-item {
+      padding: 8px 0px 8px 8px;
+   }
+
+   .nav-item.uppercase {
+      display: none;
    }
 }
 
