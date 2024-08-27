@@ -62,8 +62,15 @@ if ($uploadOk) {
   $description = $_POST['description'];
   $image = $target_file;
  
-  $last_id = Itinerary::store($title, $travel_time, $description, $image);
-  header("location: /itinerary?id=" . $last_id );
+  $response = Itinerary::store($title, $travel_time, $description, $image);
+  if (is_array($response)) {
+    header("location: /itinary/add");
+  }
+
+  if (!is_array($response)){
+    header("location: /itinerary?id=" . $response );
+  }
+  
  
 }
 
