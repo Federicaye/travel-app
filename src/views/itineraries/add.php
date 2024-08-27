@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,8 +55,8 @@
       <?php if (isset($errors['image'])) : ?>
         <p> <?= $errors['image']   ?> </p>
       <?php endif ?>
-      <?php if (isset($errorsUpload['type'])) : ?>
-        <p> <?= $errorsUpload['type']   ?> </p>
+      <?php if (isset($_SESSION["type"])) : ?>
+        <p> <?=  $_SESSION["type"]  ?> </p>
       <?php endif ?>
       <input type="submit" value="save" name="submit">
   </div>
@@ -60,7 +64,7 @@
   </form>
 
   <?php
-  var_dump($errorsUpload)
+  var_dump($_SESSION);
   ?>
   <img src="/image/hero.png" alt="">
 </body>
