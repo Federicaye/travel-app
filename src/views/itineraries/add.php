@@ -20,7 +20,7 @@ session_start();
   <?php
    
 
-   /* include __DIR__ . '/../sidebar.php'; */
+   include __DIR__ . '/../sidebar.php';
    include __DIR__ . '/../header.php';
    
     ?>
@@ -57,6 +57,15 @@ session_start();
       <?php endif ?>
       <?php if (isset($_SESSION["type"])) : ?>
         <p> <?=  $_SESSION["type"]  ?> </p>
+      <?php endif ?>
+      <?php if (isset($_SESSION["size"])) : ?>
+        <p> <?=  $_SESSION["size"]  ?> </p>
+      <?php endif ?>
+      <?php if (isset($_SESSION["otherError"])) : ?>
+        <p> <?=  $_SESSION["otherError"]  ?> </p>
+      <?php endif ?>
+      <?php if (isset($_SESSION["isImage"])) : ?>
+        <p> <?=  $_SESSION["isImage"]  ?> </p>
       <?php endif ?>
       <input type="submit" value="save" name="submit">
   </div>
