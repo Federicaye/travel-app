@@ -83,7 +83,7 @@ class itinerary
             $errors['description'] = 'title length must be at least 1 character';
         }
 
-        if (!Validator::string($image, 1, 100)) {
+        if (!Validator::string($image, 1, 200)) {
             $errors['image'] = 'image is required';
         }
 

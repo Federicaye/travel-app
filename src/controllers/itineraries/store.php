@@ -2,6 +2,7 @@
 
 include __DIR__ . '/../../models/itinerary.php';
 
+$errorsUpload= [];
 $target_dir = 'upload/';
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -14,6 +15,7 @@ if (isset($_POST["submit"])) {
     echo "File is an image - " . $check["mime"] . ".";
     $uploadOk = 1;
   } else {
+    $errorsUpload['isImage'] = 'File is not an image';
     echo "File is not an image.";
     $uploadOk = 0;
   }
@@ -28,10 +30,11 @@ if (isset($_POST["submit"])) {
 } */
 
 // Check file size
-/* if ($_FILES["fileToUpload"]["size"] > 500000) {
+ if ($_FILES["fileToUpload"]["size"] > 500000) {
   echo "Sorry, your file is too large.";
+  $errorsUpload['size'] = 'Sorry, your file is too large.';
   $uploadOk = 0;
-} */
+} 
 
 // Allow certain file formats
 if (
@@ -39,13 +42,16 @@ if (
   && $imageFileType != "gif"
 ) {
   echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+  $errorsUpload['type'] = 'Sorry, only JPG, JPEG, PNG & GIF files are allowed.';
   $uploadOk = 0;
 }
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
-  // if everything is ok, try to upload file
+  $query_string = http_build_query(['errors' => $errorsUpload]);
+ header('location: /localities/add?'. $query_string);
+// if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
@@ -53,7 +59,6 @@ if ($uploadOk == 0) {
     echo "Sorry, there was an error uploading your file.";
   }
 }
-
 
 if ($uploadOk) {
 
@@ -64,7 +69,7 @@ if ($uploadOk) {
  
   $response = Itinerary::store($title, $travel_time, $description, $image);
   if (is_array($response)) {
-    header("location: /itinary/add");
+    header("location: /itineraries/add");
   }
 
   if (!is_array($response)){
