@@ -1,4 +1,5 @@
 <?php
+session_start();
 include __DIR__ . '/../../models/day.php';
 $days = day::index($itineraryData['itinerary'][0]['id']);
 var_dump($days);
@@ -59,8 +60,8 @@ $day_left = array_diff($travel_days, $scheduled_days);
 
             <div class="localities-container">
                 <?php
-                  foreach ($itineraryData['destinations'] as $destination) {
-                  echo '<div class="localities-card">
+        foreach ($itineraryData['destinations'] as $destination) {
+            echo '<div class="localities-card">
                   <img class="localities-img" src="../../../' . $destination['image'] . '" alt="Avatar">
                   <div class="">
                   <h4><b>' . $destination['name'] . '</b></h4>
@@ -73,24 +74,35 @@ $day_left = array_diff($travel_days, $scheduled_days);
                    </form>
                    </div>
                   </div>';
-                  }
-                ?>
-             </div>
-
+        }
+        ?>
+        </div>
+        <hr>
         <!-- AGGIUNGI DESTINAZIONI -->
         <h4 class="red">Select the stages of your journey</h4>
 
         <form action="/destinations/store" method="POST">
-            <select class="js-example-basic-multiple" name="locality_id[]" multiple="multiple" style="width: 100%;">
+            <select class="js-example-basic-multiple" name="locality_id[]" multiple="multiple" style="width: 100%;"
+                required>
                 <?php
                 foreach ($localities as $locality) {
                     echo ' <option value="' . $locality['id'] . '">' . $locality['name'] . '</option>';
                 }
                 ?>
-            </select>
+            </select>            
+
+            <?php 
+            var_dump($_SESSION['destinationsAdded']);
+            if(isset($_SESSION['destinationsAdded'])) {
+foreach ($_SESSION['destinationsAdded'] as $destination) {
+    echo $destination;
+}
+            } ?>
             <input type="hidden" name="itinerary_id" value="<?php echo $itineraryData['itinerary'][0]['id']; ?>">
             <input type="submit" value="save">
         </form>
+
+        <hr>
         <!-- TABELLA DELLE GIORNATE -->
         <h4 class="red">Day-to-day plan</h4>
         <div class="table-responsive-lg">

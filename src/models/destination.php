@@ -60,14 +60,30 @@ class destination
 
     public static function store($itinerary_id, $locality_id)
     {
-        var_dump($_POST['locality_id']);
         self::setConnection();
+        $destinationsAdded= [];
+        $canAdd = true;
         foreach ($locality_id as $id) {
-            $integer = (int)$id;
-            $sql = "INSERT INTO trip_destination (itinerary_id, locality_id) VALUES ('$itinerary_id', '$id')";
-            self::$conn->query($sql) === TRUE;
+            $destination = [];
+            $destination = self::$conn->query("SELECT * FROM trip_destination 
+            INNER JOIN localities ON trip_destination.locality_id=localities.id
+            WHERE itinerary_id = $itinerary_id 
+            AND locality_id = $id");
+            if ($destination && $destination->num_rows > 0) {
+                $destination= $destination->fetch_all(MYSQLI_ASSOC);
+                array_push($destinationsAdded, $destination[0]['name']); 
+                $canAdd = false;
+                
+            }
         }
-
+       
+        if( $canAdd) {
+        foreach ($locality_id as $id) {
+            $id = (int)$id;
+            $sql = "INSERT INTO trip_destination (itinerary_id, locality_id) VALUES ('$itinerary_id', '$id')";
+            self::$conn->query($sql);
+        }
+    }else return $destinationsAdded;
         
     }
 }

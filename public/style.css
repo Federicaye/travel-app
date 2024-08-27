@@ -96,7 +96,7 @@ header {
 .localities-card {
    box-shadow: 0 4px 8px 0 #50808e3b;
    transition: 0.3s;
-   width: calc(100%/4 - 10px);
+   width: calc(100%/5 - 10px);
    background-color: white;
    border-radius: 5px;
  }

@@ -72,15 +72,15 @@ class itinerary
         $errors = [];
 
         if (!Validator::string($title, 1, 100)) {
-            $errors['title'] = 'title length must be at least 1 character';
+            $errors['title'] = 'the length of the title should be between 1 and 100 characters';
         }
 
         if (!Validator::integer($travel_time, 1, 60)) {
-            $errors['travel_time'] = 'title length must be at least 1 character';
+            $errors['travel_time'] = 'travel time must be between 1 and 60 days';
         }
 
         if (!Validator::string($description, 0, 600)) {
-            $errors['description'] = 'title length must be at least 1 character';
+            $errors['description'] = 'the length of the description must be less than 600 characters';
         }
 
         if (!Validator::string($image, 1, 200)) {

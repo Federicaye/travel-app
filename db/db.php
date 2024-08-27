@@ -56,9 +56,9 @@ $sql = "CREATE TABLE IF NOT EXISTS trip_destination (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   itinerary_id INT UNSIGNED NOT NULL,
   locality_id INT UNSIGNED NOT NULL,
- /*  trip_day TINYINT UNSIGNED UNIQUE NOT NULL, */
   CONSTRAINT FK_itinerary FOREIGN KEY (itinerary_id) REFERENCES itineraries(id) ON DELETE CASCADE,
-  CONSTRAINT FK_locality FOREIGN KEY (locality_id) REFERENCES localities(id) ON DELETE CASCADE
+  CONSTRAINT FK_locality FOREIGN KEY (locality_id) REFERENCES localities(id) ON DELETE CASCADE,
+  CONSTRAINT itinerary_locality UNIQUE (itinerary_id, locality_id)
 )";
 
 if ($conn->query($sql) === TRUE) {

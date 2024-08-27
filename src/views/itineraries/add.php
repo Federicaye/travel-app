@@ -20,7 +20,7 @@ session_start();
   <?php
    
 
-   include __DIR__ . '/../sidebar.php';
+   include __DIR__ . '/../sidebar.php'; 
    include __DIR__ . '/../header.php';
    
     ?>
@@ -29,14 +29,14 @@ session_start();
     <form action="/itineraries/store" method="POST" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" id="title" placeholder="title" name="title" minlength="1" maxlength="100" >
+        <input type="text" class="form-control" id="title" placeholder="title" name="title" minlength="1" maxlength="100" required>
       </div>
       <?php if (isset($errors['title'])) : ?>
         <p> <?= $errors['title']   ?> </p>
       <?php endif ?>
       <div class="mb-3">
       <label for="travel_time" class="form-label">Travel time</label>
-      <input type="number" class="form-control" name="travel_time" min="1" max="60" >
+      <input type="number" class="form-control" name="travel_time" min="1" max="60" required>
       </div>
       <?php if (isset($errors['travel_time'])) : ?>
         <p> <?= $errors['travel_time']   ?> </p>
@@ -50,7 +50,7 @@ session_start();
       <?php endif ?>
       <div class="mb-3">
         <label for="image" class="form-label">image</label>
-        <input type="file" class="form-control" name="fileToUpload" id="fileToUpload" >
+        <input type="file" class="form-control" name="fileToUpload" id="fileToUpload" required >
       </div>
       <?php if (isset($errors['image'])) : ?>
         <p> <?= $errors['image']   ?> </p>
@@ -73,13 +73,7 @@ session_start();
 
   </form>
 
-  <?php
-  var_dump($_SESSION);
-  ?>
-  <img src="/image/hero.png" alt="">
 </body>
 
 </html>
-<?php
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-echo $uri;
+
