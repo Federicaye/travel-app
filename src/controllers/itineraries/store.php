@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$errorsUpload= [];
 include __DIR__ . '/../../models/itinerary.php';
 
 $target_dir = 'upload/';
@@ -15,7 +15,7 @@ if (isset($_POST["submit"])) {
     echo "File is an image - " . $check["mime"] . ".";
     $uploadOk = 1;
   } else {
-    $_SESSION["isImage"] = 'File is not an image';
+    $errorsUpload['isImage'] = 'File is not an image';
     $uploadOk = 0;
   }  
 }
@@ -28,7 +28,7 @@ if (isset($_POST["submit"])) {
 
 // Check file size
  if ($_FILES["fileToUpload"]["size"] > 500000) {
- $_SESSION["size"] = 'Sorry, your file is too large.';
+ $errorsUpload["size"] = 'Sorry, your file is too large.';
   $uploadOk = 0;
 } 
 
@@ -36,12 +36,13 @@ if (isset($_POST["submit"])) {
 if (
   $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
   && $imageFileType != "gif") {
-  $_SESSION["type"] = 'Sorry, only JPG, JPEG, PNG & GIF files are allowed.';
+  $errorsUpload["type"] = 'Sorry, only JPG, JPEG, PNG & GIF files are allowed.';
   $uploadOk = 0;
 }
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
+  $_SESSION['errorsUpload'] = $errorsUpload;
   echo "Sorry, your file was not uploaded.";
   header('location: /itineraries/add');
 // if everything is ok, try to upload file
@@ -49,7 +50,8 @@ if ($uploadOk == 0) {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
   } else {
-    $_SESSION["otherError"] = 'Sorry, there was an error uploading your file.';
+    $errorsUpload["otherError"] = 'Sorry, there was an error uploading your file.';
+    $_SESSION['errorsUpload'] = $errorsUpload;
   }
 }
 

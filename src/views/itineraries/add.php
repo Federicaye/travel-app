@@ -55,18 +55,19 @@ session_start();
       <?php if (isset($errors['image'])) : ?>
         <p> <?= $errors['image']   ?> </p>
       <?php endif ?>
-      <?php if (isset($_SESSION["type"])) : ?>
-        <p> <?=  $_SESSION["type"]  ?> </p>
+      <?php if (isset($_SESSION["errorsUpload"]["type"])) : ?>
+        <p> <?=  $_SESSION["errorsUpload"]["type"]  ?> </p>
       <?php endif ?>
-      <?php if (isset($_SESSION["size"])) : ?>
-        <p> <?=  $_SESSION["size"]  ?> </p>
+      <?php if (isset($_SESSION["errorsUpload"]["size"])) : ?>
+        <p> <?=  $_SESSION["errorsUpload"]["size"]  ?> </p>
       <?php endif ?>
-      <?php if (isset($_SESSION["otherError"])) : ?>
-        <p> <?=  $_SESSION["otherError"]  ?> </p>
+      <?php if (isset($_SESSION["errorsUpload"]["otherError"])) : ?>
+        <p> <?=  $_SESSION["errorsUpload"]["otherError"]  ?> </p>
       <?php endif ?>
-      <?php if (isset($_SESSION["isImage"])) : ?>
-        <p> <?=  $_SESSION["isImage"]  ?> </p>
+      <?php if (isset($_SESSION["errorsUpload"]["isImage"])) : ?>
+        <p> <?=  $_SESSION["errorsUpload"]["isImage"]  ?> </p>
       <?php endif ?>
+      <?php $_SESSION['errorsUpload'] = []; ?>
       <input type="submit" value="save" name="submit">
   </div>
 
