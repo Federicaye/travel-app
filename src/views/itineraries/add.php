@@ -16,7 +16,7 @@
   <?php
    
 
-   include __DIR__ . '/../sidebar.php';
+   /* include __DIR__ . '/../sidebar.php'; */
    include __DIR__ . '/../header.php';
    
     ?>
@@ -25,25 +25,43 @@
     <form action="/itineraries/store" method="POST" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" id="title" placeholder="title" name="title" minlength="1" maxlength="100" required>
+        <input type="text" class="form-control" id="title" placeholder="title" name="title" minlength="1" maxlength="100" >
       </div>
+      <?php if (isset($errors['title'])) : ?>
+        <p> <?= $errors['title']   ?> </p>
+      <?php endif ?>
       <div class="mb-3">
       <label for="travel_time" class="form-label">Travel time</label>
-      <input type="number" class="form-control" name="travel_time" min="1" max="60" required>
+      <input type="number" class="form-control" name="travel_time" min="1" max="60" >
       </div>
+      <?php if (isset($errors['travel_time'])) : ?>
+        <p> <?= $errors['travel_time']   ?> </p>
+      <?php endif ?>
       <div class="mb-3">
         <label for="description" class="form-label">description</label>
         <textarea class="form-control" id="description" rows="3" name="description" maxlength="600"></textarea>
       </div>
+      <?php if (isset($errors['description'])) : ?>
+        <p> <?= $errors['description']   ?> </p>
+      <?php endif ?>
       <div class="mb-3">
         <label for="image" class="form-label">image</label>
-        <input type="file" class="form-control" name="fileToUpload" id="fileToUpload" required>
+        <input type="file" class="form-control" name="fileToUpload" id="fileToUpload" >
       </div>
+      <?php if (isset($errors['image'])) : ?>
+        <p> <?= $errors['image']   ?> </p>
+      <?php endif ?>
+      <?php if (isset($errorsUpload['type'])) : ?>
+        <p> <?= $errorsUpload['type']   ?> </p>
+      <?php endif ?>
       <input type="submit" value="save" name="submit">
   </div>
 
   </form>
 
+  <?php
+  var_dump($errorsUpload)
+  ?>
   <img src="/image/hero.png" alt="">
 </body>
 
