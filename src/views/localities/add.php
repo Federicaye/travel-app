@@ -26,7 +26,7 @@
 
       <div class="mb-3">
         <label for="locality_name" class="form-label">locality</label>
-        <input type="text" id="locality_name" list="locality" name="locality_name" class="form-control">
+        <input type="text" id="locality_name" list="locality" name="locality_name" class="form-control" required>
         <datalist id="locality">
 
         </datalist>

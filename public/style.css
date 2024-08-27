@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Moderustic:wght@300..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Spline+Sans:wght@300..700&display=swap');
+body {
+   background-color: #f2efea !important;
+   font-family: "Moderustic", sans-serif !important;
+   color: #4A4548 !important;
+}
+
 #logo-ti {
    width: 160px;
    
@@ -36,10 +43,6 @@
    width: 100%;
 }
 
-body {
-   background-color: #f2efea;
-}
-
 .sidebar {
    height: 100vh; /* altezza sidebar */
    position: fixed; /* FISSA COSI NON SCORRE CON LA PAGINA */
@@ -65,6 +68,9 @@ body {
    padding: 1rem;
    background-color: #f2efea;
 }
+.uppercase {
+text-transform: uppercase;
+}
 
 .icon {
    padding-right: 5px;
@@ -72,12 +78,51 @@ body {
    vertical-align: middle;
 }
 
+.icon-container {
+   width: calc(20% - 8px);
+}
+
+.text {
+   width: 80%;
+}
+
+
 header {
    margin-left: 190px;
    transition: margin-left 0.3s;
    background-color: #ffffff;
 }
+/* CARD DESTINATIONS */
+.localities-card {
+   box-shadow: 0 4px 8px 0 #50808e3b;
+   transition: 0.3s;
+   width: calc(100%/4 - 10px);
+   background-color: white;
+   border-radius: 5px;
+ }
+ 
+ .localities-card:hover {
+   box-shadow: 0 8px 16px 0 #50808e4a;
+ }
+ 
+ .localities-container {
+   display: flex;
+   gap: 20px;
+   flex-wrap: wrap;
+   
+ }
 
+.localities-img {
+   width: 100%;
+   height: 100px;
+   object-fit: cover;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+}
+
+
+
+/* MEDIA QUERY */
 
 @media (max-width: 992px) {
    .sidebar {
@@ -87,6 +132,7 @@ header {
    .sidebar .nav-link {
        font-size: 0; 
    }
+   
    .main-content {
        margin-left: 70px;
    }
@@ -99,9 +145,16 @@ header {
      
    }
    
-  
+   .localities-card {
+      width: calc(100%/2 - 10px);
+   }
 }
 
+@media (max-width: 600px) {
+   .localities-card {
+      width: 100%;
+   }
+}
 
 .table {
    --bs-table-hover-bg: rgba(var(--bs-emphasis-color-rgb), 1) !important;
@@ -114,4 +167,8 @@ header {
 .localityImage {
    width: 180px;
    height: 180px;
+}
+
+.card {
+width: 30%;
 }

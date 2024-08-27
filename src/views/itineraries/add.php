@@ -25,19 +25,19 @@
     <form action="/itineraries/store" method="POST" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" id="title" placeholder="title" name="title">
+        <input type="text" class="form-control" id="title" placeholder="title" name="title" minlength="1" maxlength="100" required>
       </div>
       <div class="mb-3">
       <label for="travel_time" class="form-label">Travel time</label>
-      <input type="number" class="form-control" name="travel_time" min="1" max="60">
+      <input type="number" class="form-control" name="travel_time" min="1" max="60" required>
       </div>
       <div class="mb-3">
         <label for="description" class="form-label">description</label>
-        <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+        <textarea class="form-control" id="description" rows="3" name="description" maxlength="600"></textarea>
       </div>
       <div class="mb-3">
         <label for="image" class="form-label">image</label>
-        <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
+        <input type="file" class="form-control" name="fileToUpload" id="fileToUpload" required>
       </div>
       <input type="submit" value="save" name="submit">
   </div>

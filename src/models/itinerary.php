@@ -1,6 +1,7 @@
 <?php
 
 include_once __DIR__ . '/../../db/connection.php';
+require __DIR__ . '/../Validator.php';
 
 class itinerary
 {
@@ -67,12 +68,37 @@ class itinerary
     public static function store($title, $travel_time, $description, $image)
     {
         self::setConnection();
-        $sql = "INSERT INTO itineraries (title, travel_time, description, image) VALUES ('$title', '$travel_time', '$description', '$image')";
 
-        if (self::$conn->query($sql) === TRUE) {
+        $errors = [];
 
-            $last_id = self::$conn->insert_id;
-            return $last_id;
+        if (!Validator::string($title, 1, 100)) {
+            $errors['title'] = 'title length must be at least 1 character';
         }
+
+        if (!Validator::integer($travel_time, 1, 60)) {
+            $errors['travel_time'] = 'title length must be at least 1 character';
+        }
+
+        if (!Validator::string($description, 0, 600)) {
+            $errors['description'] = 'title length must be at least 1 character';
+        }
+
+        if (!Validator::string($image, 1, 100)) {
+            $errors['image'] = 'image is required';
+        }
+
+        if (empty($errors)) {
+            $sql = "INSERT INTO itineraries (title, travel_time, description, image) 
+                    VALUES ('$title', '$travel_time', '$description', '$image')";
+
+                if (self::$conn->query($sql) === TRUE) {
+
+                $last_id = self::$conn->insert_id;
+                return $last_id;
+            }
+        }
+
+        return $errors;
+
     }
 }
