@@ -44,7 +44,7 @@ $localities = locality::index();
             <form action="/destinations/delete" method="POST">
             <input type="hidden" name="_method" value="DELETE">
             <input type="hidden" name="id" value="' . $locality["id"] . '">
-            <button type="submit"><i class="fa-solid fa-trash brown"></i></button>
+            <button type="submit" class="trash-button"><i class="fa-solid fa-trash brown"></i></button>
             </form>
             </div>
             </div>';

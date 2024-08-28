@@ -68,7 +68,7 @@ session_start();
         <p> <?=  $_SESSION["errorsUpload"]["isImage"]  ?> </p>
       <?php endif ?>
       <?php $_SESSION['errorsUpload'] = []; ?>
-      <input type="submit" value="save" name="submit">
+      <button type="submit" name="submit" class="button-brown">save</button>
   </div>
 
   </form>

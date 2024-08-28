@@ -76,38 +76,47 @@ $day_left = array_diff($travel_days, $scheduled_days);
         </div>
 
         <!-- AGGIUNGI DESTINAZIONI -->
-        <p>
-           
-            <button class="btn button-brown" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
-                add stage <i class="fa-solid fa-caret-down"></i>
-            </button>
-        </p>
-        <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-            <form action="/destinations/store" method="POST">
-            <select class="js-example-basic-multiple" name="locality_id[]" multiple="multiple" style="width: 100%;"
-                required>
-                <?php
-                foreach ($localities as $locality) {
-                    echo ' <option value="' . $locality['id'] . '">' . $locality['name'] . '</option>';
-                }
-                ?>
-            </select>
+
+        <div class="d-flex justify-content-between">
 
             <?php
 
-            if (isset($_SESSION['destinationsAdded'])) {
+            if (isset($_SESSION['destinationsAdded']) && !empty($_SESSION['destinationsAdded'])) {
                 foreach ($_SESSION['destinationsAdded'] as $destination) {
                     echo '<p class="red">' . $destination . ' is already added </p>';
                 }
+            } else {
+              echo  '<div class="invisible">placeholder</div>';
             }
             $_SESSION['destinationsAdded'] = [];
             ?>
-            <input type="hidden" name="itinerary_id" value="<?php echo $itineraryData['itinerary'][0]['id']; ?>">
-            <button type="submit" class="button-brown">save</button>
 
-        </form>
+          
+            <button class="btn button-brown right" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Add stage <i class="fa-solid fa-caret-down"></i>
+            </button>
+        </div>
+
+
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <form action="/destinations/store" method="POST">
+                    <select class="js-example-basic-multiple" name="locality_id[]" multiple="multiple"
+                        style="width: 100%;" required>
+                        <?php
+                        foreach ($localities as $locality) {
+                            echo ' <option value="' . $locality['id'] . '">' . $locality['name'] . '</option>';
+                        }
+                        ?>
+                    </select>
+
+
+                    <input type="hidden" name="itinerary_id"
+                        value="<?php echo $itineraryData['itinerary'][0]['id']; ?>">
+                    <button type="submit" class="button-brown">save</button>
+
+                </form>
             </div>
         </div>
 
@@ -116,13 +125,13 @@ $day_left = array_diff($travel_days, $scheduled_days);
         <h6 class="red text-uppercase">Day-to-day plan</h6>
         <div class="table-responsive-lg">
             <table class="table table-hover">
-                <thead>
+                <thead class="destTable">
                     <tr>
-                        <td>trip day</td>
-                        <td>locality</td>
-                        <td>activities</td>
-                        <td>edit</td>
-                        <td>delete</td>
+                        <th>trip day</th>
+                        <th>locality</th>
+                        <th>activities</th>
+                        <th>edit</th>
+                        <th>delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -140,12 +149,12 @@ $day_left = array_diff($travel_days, $scheduled_days);
             </table>
         </div>
         <!-- AGGIUNGI UNA GIORNATA -->
-        <p>
+        <div class="d-flex justify-content-end">
             <button class="btn btn-primary button-brown" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
                 Add a day <i class="fa-solid fa-caret-down"></i>
             </button>
-        </p>
+        </div>
         <div>
             <div class="collapse collapse-vertical" id="collapseWidthExample">
                 <div class="card card-body">
@@ -184,6 +193,18 @@ $day_left = array_diff($travel_days, $scheduled_days);
             </div>
         </div>
 
+        <table class="ptova">
+            <thead>
+                <tr>
+                    <td>
+                        ciao
+                    </td>
+                    <td>
+                        ciao
+                    </td>
+                </tr>
+            </thead>
+        </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

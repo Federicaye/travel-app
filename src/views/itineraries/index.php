@@ -59,7 +59,7 @@ $itineraries = Itinerary::index();
                 <td><form action='/itineraries/delete' method='POST'>
                 <input type='hidden' name='_method' value='DELETE'>
                 <input type='hidden' name='id' value='" . $itinerary["id"] . "'>
-                <button type='submit'><i class='fa-solid fa-trash brown'></i></button>
+                <button type='submit' class='trash-button'><i class='fa-solid fa-trash brown'></i></button>
                 </form>
                 </td>
                 </tr>";

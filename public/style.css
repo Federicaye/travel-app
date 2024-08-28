@@ -85,7 +85,9 @@ body {
    background-color: #f2efea;
 }
 .uppercase {
+   font-family: "Lilita One", sans-serif;
 text-transform: uppercase;
+
 }
 
 .icon {
@@ -137,17 +139,17 @@ header {
 }
 
 .button-brown {
-   background-color:#50808e;
-   color:#f2efea;
+  background-color:#50808e;
+  color:#f2efea;
   border: none;
- padding: 4px 10px;
+  padding: 4px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin: 10px;
   cursor: pointer;
-  border-radius: 0%;
+  border-radius: 5px;
 }
 
 .trash-button {
@@ -207,10 +209,35 @@ header {
    --bs-table-hover-color: #4A4548 !important;
    border-color: #fc785345 !important;
    --bs-table-hover-bg:  #f2efea !important;
+   --bs-border-radius: 10px !important;
 }
+
+thead.destTable th:nth-child(1) {
+   width: 10%;
+ }
+ 
+ thead th:nth-child(2) {
+   width: 25%;
+ }
+ 
+ thead th:nth-child(3) {
+   width: 50%;
+ }
+ 
+ thead th:nth-child(4) {
+   width: 5%;
+ }
+ thead th:nth-child(5) {
+   width: 5%;
+ }
+
 
 .localityImage {
    width: 180px;
    height: 180px;
 }
 
+.ptova th {
+   border-radius: 30px;
+   border: 1px, solid, red;
+}

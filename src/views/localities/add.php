@@ -40,7 +40,7 @@
         <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
       </div>
 
-      <input type="submit" value="save" name="submit">
+      <button type="submit" class="button-brown " name="submit">save</button>
 
     </form>
 
