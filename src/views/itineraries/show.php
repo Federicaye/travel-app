@@ -92,12 +92,14 @@ $day_left = array_diff($travel_days, $scheduled_days);
             </select>
 
             <?php
-            var_dump($_SESSION['destinationsAdded']);
+          
             if (isset($_SESSION['destinationsAdded'])) {
                 foreach ($_SESSION['destinationsAdded'] as $destination) {
                     echo '<p class="red">'. $destination . ' is already added </p>';
                 }
-            } ?>
+            } 
+            $_SESSION['destinationsAdded'] = [];
+            ?>
             <input type="hidden" name="itinerary_id" value="<?php echo $itineraryData['itinerary'][0]['id']; ?>">
             <input type="submit" value="save">
         </form>

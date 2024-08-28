@@ -1,7 +1,6 @@
 <?php
-
-include_once __DIR__ . '/../../db/connection.php';
-require __DIR__ . '/../Validator.php';
+include_once __DIR__ . '/../Database.php';
+require_once __DIR__ . '/../Validator.php';
 
 class itinerary
 {
