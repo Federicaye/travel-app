@@ -29,7 +29,7 @@ class Database
 
         $sql = "CREATE DATABASE IF NOT EXISTS travelapp";
         if ($conn->query($sql) === TRUE) {
-            echo "Database created successfully";
+           /*  echo "Database created successfully"; */
         } else {
             echo "Error creating database: " . $conn->error;
         }
@@ -45,9 +45,9 @@ class Database
         )";
 
         if ($conn->query($sql) === TRUE) {
-            echo "Table itinerarys created successfully";
+           /*  echo "Table itinerarys created successfully"; */
         } else {
-            echo "Error creating table: " . $conn->error;
+           /*  echo "Error creating table: " . $conn->error; */
         }
 
         $sql = "CREATE TABLE IF NOT EXISTS localities (
@@ -59,7 +59,7 @@ class Database
         description  TEXT)";
 
         if ($conn->query($sql) === TRUE) {
-            echo "Table localities created successfully";
+          /*   echo "Table localities created successfully"; */
         } else {
             echo "Error creating table: " . $conn->error;
         }
@@ -75,7 +75,7 @@ class Database
           )";
           
           if ($conn->query($sql) === TRUE) {
-            echo "Tabella di giunzione trip_datination creata con successo<br>";
+           /*  echo "Tabella di giunzione trip_datination creata con successo<br>"; */
           } else {
             echo "Errore nella creazione della tabella di giunzione trip_dastination: " . $conn->error . "<br>";
           }
@@ -89,7 +89,7 @@ class Database
           )";
           
           if ($conn->query($sql) === TRUE) {
-            echo "Tabella di giunzione days creata con successo<br>";
+          /*   echo "Tabella di giunzione days creata con successo<br>"; */
           } else {
             echo "Errore nella creazione della tabella di giunzione days: " . $conn->error . "<br>";
           } 

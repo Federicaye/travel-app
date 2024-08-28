@@ -50,9 +50,9 @@ $day_left = array_diff($travel_days, $scheduled_days);
         <h2><?php echo $itineraryData['itinerary'][0]['title']; ?></h2>
         <h5><?php echo $itineraryData['itinerary'][0]['description']; ?></h5>
 
-        <?php var_dump($itineraryData) ?>
+        <hr>
         <?php if ($itineraryData['destinations'])
-            echo '<h4 class="red">Localities visited</h4>'
+            echo '<h6 class="red text-uppercase">Stages</h6>'
                 ?>
 
             <div class="localities-container">
@@ -61,24 +61,31 @@ $day_left = array_diff($travel_days, $scheduled_days);
             echo '<div class="localities-card">
                   <img class="localities-img" src="../../../' . $destination['image'] . '" alt="Avatar">
                   <div class="">
-                  <h4><b>' . $destination['name'] . '</b></h4>
+                  <h6 class="text-center">' . $destination['name'] . '</h6>
                    <p>' . $destination['description'] . '</p>
                  <form action="/destinations/delete" method="POST">
                   <input type="hidden" name="_method" value="DELETE">
                   <input type="hidden" name="id" value="' . $destination["id"] . '">
                   <input type="hidden" name="id_itinerary_show" value="' . $itineraryData['itinerary'][0]['id'] . '">
-                   <button type="submit"><i class="fa-solid fa-trash brown"></i></button>
+                   <button type="submit" class="trash-button"><i class="fa-solid fa-trash brown"></i></button>
                    </form>
                    </div>
                   </div>';
         }
         ?>
         </div>
-        <hr>
-        <!-- AGGIUNGI DESTINAZIONI -->
-        <h4 class="red">Select the stages of your journey</h4>
 
-        <form action="/destinations/store" method="POST">
+        <!-- AGGIUNGI DESTINAZIONI -->
+        <p>
+           
+            <button class="btn button-brown" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                add stage <i class="fa-solid fa-caret-down"></i>
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+            <form action="/destinations/store" method="POST">
             <select class="js-example-basic-multiple" name="locality_id[]" multiple="multiple" style="width: 100%;"
                 required>
                 <?php
@@ -89,21 +96,24 @@ $day_left = array_diff($travel_days, $scheduled_days);
             </select>
 
             <?php
-          
+
             if (isset($_SESSION['destinationsAdded'])) {
                 foreach ($_SESSION['destinationsAdded'] as $destination) {
-                    echo '<p class="red">'. $destination . ' is already added </p>';
+                    echo '<p class="red">' . $destination . ' is already added </p>';
                 }
-            } 
+            }
             $_SESSION['destinationsAdded'] = [];
             ?>
             <input type="hidden" name="itinerary_id" value="<?php echo $itineraryData['itinerary'][0]['id']; ?>">
-            <input type="submit" value="save">
+            <button type="submit" class="button-brown">save</button>
+
         </form>
+            </div>
+        </div>
 
         <hr>
         <!-- TABELLA DELLE GIORNATE -->
-        <h4 class="red">Day-to-day plan</h4>
+        <h6 class="red text-uppercase">Day-to-day plan</h6>
         <div class="table-responsive-lg">
             <table class="table table-hover">
                 <thead>
@@ -131,9 +141,9 @@ $day_left = array_diff($travel_days, $scheduled_days);
         </div>
         <!-- AGGIUNGI UNA GIORNATA -->
         <p>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+            <button class="btn btn-primary button-brown" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-                Add a day
+                Add a day <i class="fa-solid fa-caret-down"></i>
             </button>
         </p>
         <div>
