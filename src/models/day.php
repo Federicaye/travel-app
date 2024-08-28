@@ -15,6 +15,7 @@ class day
     {
         $id = (int)$id;
         self::setConnection();
+    
         $days = self::$conn->query("SELECT  localities.name AS locality_name,
             days.trip_day  FROM days 
         INNER JOIN trip_destination ON  days.trip_destination_id = trip_destination.id 
@@ -27,34 +28,37 @@ class day
     {
 
         self::setConnection();
-        $itinerary = self::$conn->query("SELECT * FROM itineraries WHERE id = $id");
-        $itinerary = $itinerary->fetch_all(MYSQLI_ASSOC);
+       /*  $day = self::$conn->query("SELECT * FROM days WHERE id = $id");
+        $day = $day->fetch_all(MYSQLI_ASSOC); */
+        $sql = "SELECT * FROM days WHERE id = $id";
+        if (self::$conn->query($sql) === TRUE) {
+            echo "yes";
+        } else {
+            echo "Error  " . self::$conn->error;
+        }
 
-
-        $destinations = self::$conn->query("SELECT * FROM trip_destination INNER JOIN localities ON trip_destination.locality_id=localities.id WHERE itinerary_id = $id");
-        $destinations = $destinations->fetch_all(MYSQLI_ASSOC);
-        return [
-            'itinerary' => $itinerary,
-            'destinations' => $destinations
-        ];
+        self::$conn->close();
     }
 
-    public static function update($title, $travel_time, $description, $image, $id)
+    public static function update($trip_day, $id)
     {
         self::setConnection();
-        $sql = "UPDATE itineraries 
-        SET title='$title', 
-        travel_time = '$travel_time',
-        description='$description',
-        image= '$image'
+        $sql = "UPDATE days 
+        SET trip_day = '$trip_day',
         WHERE id=$id";
-        self::$conn->query($sql);
+         if (self::$conn->query($sql) === TRUE) {
+            echo "Record updates successfully";
+        } else {
+            echo "Error updating record: " . self::$conn->error;
+        }
+
+        self::$conn->close();
     }
 
     public static function delete($id)
     {
         self::setConnection();
-        $sql = "DELETE FROM itineraries WHERE id=$id";
+        $sql = "DELETE FROM days WHERE id=$id";
 
         if (self::$conn->query($sql) === TRUE) {
             echo "Record deleted successfully";
@@ -65,16 +69,20 @@ class day
         self::$conn->close();
     }
 
-    public static function store($itinerary_id, $locality_id)
+    public static function store($trip_destination_id, $trip_day)
     {
-        var_dump($_POST['locality_id']);
+       
         self::setConnection();
-        foreach ($locality_id as $id) {
-            $integer = (int)$id;
-            $sql = "INSERT INTO trip_destination (itinerary_id, locality_id) VALUES ('$itinerary_id', '$id')";
-            self::$conn->query($sql) === TRUE;
-        }
-
         
+        $sql = "INSERT INTO days (trip_destination_id, trip_day) VALUES ('$trip_destination_id', '$trip_day')";
+        if (self::$conn->query($sql) === TRUE) {
+            echo "stored succesfully";
+           
+            
+          } else {
+            echo "Error: " . $sql . "<br>" . self::$conn->error;
+          } 
+        
+          self::$conn->close();
     }
 }
