@@ -3,9 +3,9 @@ use GuzzleHttp\Psr7\Query;
 require '../src/Database.php';
 Database::createDatabase();
 
-require '../routing/Router.php';
+require '../src/routing/Router.php';
 $router = new Router();
-require '../routing/routes.php'; 
+require '../src/routing/routes.php'; 
 $url = parse_url($_SERVER['REQUEST_URI']);
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
