@@ -21,7 +21,9 @@ class day
         INNER JOIN trip_destination ON  days.trip_destination_id = trip_destination.id 
         INNER JOIN itineraries ON  trip_destination.itinerary_id = itineraries.id 
         INNER JOIN localities ON  trip_destination.locality_id = localities.id 
-        WHERE itineraries.id = $id" );
+        WHERE itineraries.id = $id
+        ORDER BY trip_day ASC" 
+        );
         return $days->fetch_all(MYSQLI_ASSOC);
     }
     public static function show($id)
@@ -69,7 +71,7 @@ class day
         self::$conn->close();
     }
 
-    public static function store($trip_destination_id, $trip_day)
+    public static function store($trip_destination_id, $trip_day, $id)
     {
        
         self::setConnection();
@@ -77,7 +79,7 @@ class day
         $sql = "INSERT INTO days (trip_destination_id, trip_day) VALUES ('$trip_destination_id', '$trip_day')";
         if (self::$conn->query($sql) === TRUE) {
             echo "stored succesfully";
-           
+            header("location: /itinerary?id=" . $id);
             
           } else {
             echo "Error: " . $sql . "<br>" . self::$conn->error;

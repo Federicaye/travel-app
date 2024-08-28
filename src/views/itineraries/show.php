@@ -1,8 +1,5 @@
 <?php
 session_start();
-include __DIR__ . '/../../models/day.php';
-$days = day::index($itineraryData['itinerary'][0]['id']);
-var_dump($days);
 
 $travel_time = $itineraryData['itinerary'][0]['travel_time'];
 $travel_days = [];
