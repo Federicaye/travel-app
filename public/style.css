@@ -138,6 +138,7 @@ header {
    border-top-right-radius: 5px;
 }
 
+/* BUTTON */
 .button-brown {
   background-color:#50808e;
   color:#f2efea;
@@ -152,15 +153,52 @@ header {
   border-radius: 5px;
 }
 
-.trash-button {
-   border:none;
-   background-color: transparent;
-}
-
 .button-brown:hover{
    background-color: #6f686d;
    color: #DBD56E;
 }
+
+.trash-button {
+   border:none;
+   background-color: #fc7753;
+   color:  #4A4548;
+   border-radius: 8px;
+}
+
+.trash-button:hover {
+   background-color:#4A4548;
+   color:  #fc7753;
+}
+
+.edit-button {
+   border:none;
+   background-color:#50808e;
+   color:#e2de8d;
+   border-radius: 8px;
+   padding: 5px;
+  
+}
+
+.edit-button:hover {
+   background-color:#e2de8d;;
+   color: #50808e;
+}
+
+.show-button {
+   border:none;
+   background-color: #DBD56E;
+   color:#4A4548;
+   border-radius: 8px;
+   padding: 5px;
+  
+}
+
+.show-button:hover {
+   background-color:#4A4548;
+   color: #DBD56E;
+}
+
+
 
 /* MEDIA QUERY */
 
@@ -225,6 +263,29 @@ thead.destTable th:nth-child(1) {
  }
  
  thead th:nth-child(4) {
+   width: 5%;
+ }
+ thead th:nth-child(5) {
+   width: 5%;
+ }
+
+
+ thead.itiTable th:nth-child(1) {
+   width: 30%;
+ }
+ 
+ thead th:nth-child(2) {
+   width: 40%;
+ }
+ 
+ thead th:nth-child(3) {
+   width: 10%;
+ }
+ 
+ thead th:nth-child(4) {
+   width: 5%;
+ }
+ thead th:nth-child(5) {
    width: 5%;
  }
  thead th:nth-child(5) {

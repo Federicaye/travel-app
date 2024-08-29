@@ -34,32 +34,32 @@ $itineraries = Itinerary::index();
             <h2 class="red">Itineraries</h2>
             <div class="table-responsive-lg">
                 <table class="table table-hover">
-                    <thead>
+                    <thead class="itiTable">
                         <tr>
-                            <td>id</td>
-                            <td>title</td>
-                            <td>description</td>
-                            <td>image</td>
-                            <td>detail</td>
-                            <td>edit</td>
-                            <td>delete</td>
+                           
+                            <th>title</th>
+                            <th>description</th>
+                            <th>image</th>
+                            <th>detail</th>
+                            <th>edit</th>
+                            <th>delete</th>
                         </tr>
                     </thead>
             
                     <tbody>
                         <?php
                         foreach ($itineraries as $itinerary)
-                            echo "<tr> <td>" . $itinerary["id"] . "</td> 
+                            echo "<tr> 
                 <td>" . $itinerary["title"] . "</td> 
                 <td>" . $itinerary["description"] . "</td> 
                 <td> <img src='../../../" . $itinerary["image"] . "' style='width: 100px; height:100px;'> </td> 
-                <td><a  href='/itinerary?id=" . $itinerary["id"] . "'><i class='fa-solid fa-eye brown'></i> </a></td>
-                <td><a  href='/itineraries/edit?id=" . $itinerary["id"] . "'><i class='fa-solid fa-pen-to-square brown'></i> </a></td>
+                <td><a href='/itinerary?id=" . $itinerary["id"] . "'><i class='fa-solid fa-eye show-button'></i> </a></td>
+                <td><a href='/itineraries/edit?id=" . $itinerary["id"] . "'><i class='fa-solid fa-pen-to-square edit-button'></i> </a></td>
 
                 <td><form action='/itineraries/delete' method='POST'>
                 <input type='hidden' name='_method' value='DELETE'>
                 <input type='hidden' name='id' value='" . $itinerary["id"] . "'>
-                <button type='submit' class='trash-button'><i class='fa-solid fa-trash brown'></i></button>
+                <button type='submit' class='trash-button'><i class='fa-solid fa-trash-can'></i></button>
                 </form>
                 </td>
                 </tr>";

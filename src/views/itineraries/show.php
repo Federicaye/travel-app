@@ -14,7 +14,6 @@ for ($i = 1; $i <= $travel_time; $i++) {
 
 $day_left = array_diff($travel_days, $scheduled_days);
 
-
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +66,7 @@ $day_left = array_diff($travel_days, $scheduled_days);
                   <input type="hidden" name="_method" value="DELETE">
                   <input type="hidden" name="id" value="' . $destination["id"] . '">
                   <input type="hidden" name="id_itinerary_show" value="' . $itineraryData['itinerary'][0]['id'] . '">
-                   <button type="submit" class="trash-button"><i class="fa-solid fa-trash brown"></i></button>
+                   <button type="submit" class="trash-button"><i class="fa-regular fa-trash-can"></i></i></button>
                    </form>
                    </div>
                   </div>';

@@ -83,8 +83,9 @@ class Database
           $sql = "CREATE TABLE IF NOT EXISTS days (
             id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             trip_destination_id INT UNSIGNED NOT NULL,
-            trip_day TINYINT UNSIGNED UNIQUE NOT NULL,
-            CONSTRAINT FK_trip_destination FOREIGN KEY (trip_destination_id) REFERENCES trip_destination(id) ON DELETE CASCADE
+            trip_day TINYINT UNSIGNED NOT NULL,
+            CONSTRAINT FK_trip_destination FOREIGN KEY (trip_destination_id) REFERENCES trip_destination(id) ON DELETE CASCADE,
+            CONSTRAINT trip_day UNIQUE (trip_day, trip_destination_id)
             
           )";
           
