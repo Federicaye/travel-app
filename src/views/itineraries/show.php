@@ -50,8 +50,9 @@ $day_left = array_diff($travel_days, $scheduled_days);
         <h5><?php echo $itineraryData['itinerary'][0]['description']; ?></h5>
 
         <hr>
-        <?php if ($itineraryData['destinations'])
-            echo '<h6 class="red text-uppercase">Stages</h6>'
+        <h6 class="blue text-uppercase">Stages</h6>
+        <?php if (!$itineraryData['destinations'])
+            echo '<p class="red">No stages saved</p>'
                 ?>
 
             <div class="localities-container">
@@ -121,7 +122,10 @@ $day_left = array_diff($travel_days, $scheduled_days);
 
         <hr>
         <!-- TABELLA DELLE GIORNATE -->
-        <h6 class="red text-uppercase">Day-to-day plan</h6>
+        <h6 class="blue text-uppercase">Day-to-day plan</h6>
+        <?php if (!$days)
+            echo '<p class="red">No days saved</p>'
+                ?>
         <div class="table-responsive-lg">
             <table class="table table-hover">
                 <thead class="destTable">
@@ -192,18 +196,6 @@ $day_left = array_diff($travel_days, $scheduled_days);
             </div>
         </div>
 
-        <table class="ptova">
-            <thead>
-                <tr>
-                    <td>
-                        ciao
-                    </td>
-                    <td>
-                        ciao
-                    </td>
-                </tr>
-            </thead>
-        </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
