@@ -71,12 +71,6 @@ session_start();
                   <div class="">
                   <h6 class="text-center">' . $destination['name'] . '</h6>
                    <p>' . $destination['description'] . '</p>
-                 <form action="/destinations/delete" method="POST">
-                  <input type="hidden" name="_method" value="DELETE">
-                  <input type="hidden" name="id" value="' . $destination["id"] . '">
-                  <input type="hidden" name="id_itinerary_show" value="' . $itineraryData['itinerary'][0]['id'] . '">
-                   <button type="submit" class="trash-button"><i class="fa-regular fa-trash-can"></i></i></button>
-                   </form>
                    </div>
                   </div>';
             }

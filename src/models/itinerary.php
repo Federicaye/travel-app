@@ -56,7 +56,7 @@ class itinerary
         $sql = "UPDATE itineraries 
         SET title='$title', 
         travel_time = '$travel_time',
-        description='$description',
+        description='$description'
         WHERE id=$id";
         self::$conn->query($sql);
     }

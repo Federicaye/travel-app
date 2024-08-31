@@ -101,7 +101,7 @@ $day_left = array_diff($travel_days, $scheduled_days);
                   <input type="hidden" name="_method" value="DELETE">
                   <input type="hidden" name="id" value="' . $destination["id"] . '">
                   <input type="hidden" name="id_itinerary_show" value="' . $itineraryData['itinerary'][0]['id'] . '">
-                   <button type="submit" class="trash-button"><i class="fa-regular fa-trash-can"></i></i></button>
+                   <button type="submit" class="trash-button crud-button"><i class="fa-regular fa-trash-can"></i></i></button>
                    </form>
                    </div>
                   </div>';
@@ -135,6 +135,7 @@ $day_left = array_diff($travel_days, $scheduled_days);
 
         <div class="collapse" id="collapseExample">
             <div class="card card-body">
+                <p>Select ono or more localities</p>
                 <form action="/destinations/store" method="POST">
                     <select class="js-example-basic-multiple" name="locality_id[]" multiple="multiple"
                         style="width: 100%;" required>
@@ -186,7 +187,7 @@ $day_left = array_diff($travel_days, $scheduled_days);
         </div>
         <!-- AGGIUNGI UNA GIORNATA -->
         <div class="d-flex justify-content-end">
-            <button class="btn btn-primary button-brown" type="button" data-bs-toggle="collapse"
+            <button class="btn  button-brown" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
                 Add a day <i class="fa-solid fa-caret-down"></i>
             </button>
@@ -198,7 +199,7 @@ $day_left = array_diff($travel_days, $scheduled_days);
 
                         <div class="mb-3">
                             <label for="trip_destination_id" class="form-label">destination</label>
-                            <select name="trip_destination_id" id="trip_destination_id">
+                            <select name="trip_destination_id" id="trip_destination_id" class="form-control">
 
                                 <?php
                                 foreach ($itineraryData['destinations'] as $i => $destination) {
@@ -212,7 +213,7 @@ $day_left = array_diff($travel_days, $scheduled_days);
 
                         <div class="mb-3">
                             <label for="trip_day" class="form-label">trip day</label>
-                            <select name="trip_day">
+                            <select name="trip_day" class="form-control">
                                 <?php
                                 foreach ($day_left as $day) {
                                     echo "<option value='" . $day . "'> " . $day . "</option>";
