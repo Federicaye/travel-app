@@ -1,6 +1,7 @@
-<b?php session_start(); $travel_time=$itineraryData['itinerary'][0]['travel_time']; $travel_days=[]; $scheduled_days=[];
-    foreach ($days as $day) { array_push($scheduled_days, $day['trip_day']); } for ($i=1; $i <=$travel_time; $i++) {
-    array_push($travel_days, $i); } $day_left=array_diff($travel_days, $scheduled_days); ?>
+<?php 
+session_start(); 
+
+?>
 
     <!DOCTYPE html>
     <html lang="en">
@@ -34,8 +35,8 @@
 
             <div class="itinerary-details">
                 <div class="itinerary-image-container">
-                    <a href="<?= $itineraryData['itinerary'][0]['image']; ?>" target="_blank" class="">
-                        <img src="<?= $itineraryData['itinerary'][0]['image']; ?>" alt="itinerary image"
+                    <a href="../../../<?=$itineraryData['itinerary'][0]['image'];?>" target="_blank" class="">
+                        <img src="../../../<?=$itineraryData['itinerary'][0]['image'];?>" alt="itinerary image"
                             class="itinerary-image">
                     </a>
                 </div>
@@ -50,10 +51,6 @@
                                 echo ' day'; ?>
                         </p>
                         <h5><?php echo $itineraryData['itinerary'][0]['description']; ?></h5>
-                    </div>
-
-                    <div class="d-flex justify-content-end">
-                        <button class="button-brown">Edit</button>
                     </div>
 
                 </div>
@@ -84,51 +81,6 @@
                   </div>';
             }
             ?>
-            </div>
-
-            <!-- AGGIUNGI DESTINAZIONI -->
-
-            <div class="d-flex justify-content-between">
-
-                <?php
-
-                if (isset($_SESSION['destinationsAdded']) && !empty($_SESSION['destinationsAdded'])) {
-                    foreach ($_SESSION['destinationsAdded'] as $destination) {
-                        echo '<p class="red">' . $destination . ' is already added </p>';
-                    }
-                } else {
-                    echo '<div class="invisible">placeholder</div>';
-                }
-                $_SESSION['destinationsAdded'] = [];
-                ?>
-
-
-                <button class="btn button-brown right" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    Add stage <i class="fa-solid fa-caret-down"></i>
-                </button>
-            </div>
-
-
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    <form action="/destinations/store" method="POST">
-                        <select class="js-example-basic-multiple" name="locality_id[]" multiple="multiple"
-                            style="width: 100%;" required>
-                            <?php
-                            foreach ($localities as $locality) {
-                                echo ' <option value="' . $locality['id'] . '">' . $locality['name'] . '</option>';
-                            }
-                            ?>
-                        </select>
-
-
-                        <input type="hidden" name="itinerary_id"
-                            value="<?php echo $itineraryData['itinerary'][0]['id']; ?>">
-                        <button type="submit" class="button-brown">save</button>
-
-                    </form>
-                </div>
             </div>
 
             <hr>
@@ -162,51 +114,7 @@
                     </tbody>
                 </table>
             </div>
-            <!-- AGGIUNGI UNA GIORNATA -->
-            <div class="d-flex justify-content-end">
-                <button class="btn btn-primary button-brown" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-                    Add a day <i class="fa-solid fa-caret-down"></i>
-                </button>
-            </div>
-            <div>
-                <div class="collapse collapse-vertical" id="collapseWidthExample">
-                    <div class="card card-body">
-                        <form action="/days/store" method="POST" enctype="multipart/form-data">
-
-                            <div class="mb-3">
-                                <label for="trip_destination_id" class="form-label">destination</label>
-                                <select name="trip_destination_id" id="trip_destination_id">
-
-                                    <?php
-                                    foreach ($itineraryData['destinations'] as $i => $destination) {
-                                        echo '<option value="' . $itineraryData['destinations'][$i]['id'] . '">' . $itineraryData['destinations'][$i]['name'] . ' </option>';
-                                    }
-                                    ?>
-
-                                </select>
-                            </div>
-
-
-                            <div class="mb-3">
-                                <label for="trip_day" class="form-label">trip day</label>
-                                <select name="trip_day">
-                                    <?php
-                                    foreach ($day_left as $day) {
-                                        echo "<option value='" . $day . "'> " . $day . "</option>";
-                                    }
-                                    ?>
-
-                                </select>
-                            </div>
-                            <input type="hidden" value="<?php echo $itineraryData['itinerary'][0]['id'] ?>" name="id">
-                            <input type="submit" value="save" name="submit">
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-
+               
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

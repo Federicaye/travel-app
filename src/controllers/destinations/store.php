@@ -5,4 +5,4 @@ $locality_id = $_POST['locality_id'];
 $itinerary_id = $_POST['itinerary_id'];
 $destinationsAdded = destination::store($itinerary_id, $locality_id);
 $_SESSION['destinationsAdded'] = $destinationsAdded;
-header('location: /itinerary?id=' . $itinerary_id);
+header('location: /itineraries/show?id=' . $itinerary_id);

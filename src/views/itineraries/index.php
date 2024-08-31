@@ -53,13 +53,13 @@ $itineraries = Itinerary::index();
                 <td>" . $itinerary["title"] . "</td> 
                 <td>" . $itinerary["description"] . "</td> 
                 <td> <img src='../../../" . $itinerary["image"] . "' style='width: 100px; height:100px;'> </td> 
-                <td><a href='/itinerary?id=" . $itinerary["id"] . "'><i class='fa-solid fa-eye show-button'></i> </a></td>
-                <td><a href='/itineraries/edit?id=" . $itinerary["id"] . "'><i class='fa-solid fa-pen edit-button'></i> </a></td>
+                <td><button class='crud-button show-button'><a href='/itineraries/show?id=" . $itinerary["id"] . "'><i class='fa-solid fa-eye'></i></a></button></td>
+                <td><button class='crud-button edit-button'><a href='/itineraries/edit?id=" . $itinerary["id"] . "'><i class='fa-solid fa-pen'></i> </a></button></td>
 
                 <td><form action='/itineraries/delete' method='POST'>
                 <input type='hidden' name='_method' value='DELETE'>
                 <input type='hidden' name='id' value='" . $itinerary["id"] . "'>
-                <button type='submit' class='trash-button'><i class='fa-solid fa-trash-can'></i></button>
+                <button type='submit' class='crud-button trash-button'><i class='fa-solid fa-trash-can'></i></button>
                 </form>
                 </td>
                 </tr>";

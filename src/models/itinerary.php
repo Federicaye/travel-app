@@ -50,6 +50,17 @@ class itinerary
         self::$conn->query($sql);
     }
 
+    public static function updateWithoutImage($title, $travel_time, $description, $id)
+    {
+        self::setConnection();
+        $sql = "UPDATE itineraries 
+        SET title='$title', 
+        travel_time = '$travel_time',
+        description='$description',
+        WHERE id=$id";
+        self::$conn->query($sql);
+    }
+
     public static function delete($id)
     {
         self::setConnection();

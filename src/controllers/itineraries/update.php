@@ -2,6 +2,8 @@
 
 include __DIR__ . '/../../models/itinerary.php';
 
+if($_FILES['fileToUpload']){
+
 $target_dir = 'upload/';
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -63,7 +65,11 @@ $id = $_POST['id'];
   $travel_time = $_POST['travel_time'];
  
   Itinerary::update($title, $travel_time, $description, $image, $id);
-  header("location: /itinerary?id=" . $id );
+  header("location: /itineraries/show?id=" . $id );
  
+}
+} else {
+  Itinerary::updateWithoutImage($title, $travel_time, $description, $image, $id);
+  header("location: /itineraries/edit?id=" . $id );
 }
 

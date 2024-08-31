@@ -7,6 +7,7 @@ $trip_destination_id = $_POST['trip_destination_id'];
 $id = $_POST['id'];
 
 Day::store($trip_destination_id, $trip_day, $id);
+header("location: /itineraries/show?id=" . $id );
 
 
  

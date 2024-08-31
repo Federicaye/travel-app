@@ -148,10 +148,10 @@ header {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
- /*  margin: 10px; */
+ margin: 15px;
   cursor: pointer;
   border-radius: 5px;
-  width: 150px;
+ /*  width: 150px; */
 }
 
 .button-brown:hover{
@@ -159,51 +159,50 @@ header {
    color: #DBD56E;
 }
 
-.trash-button {
-   border:none;
-   background-color: #fc7753;
-   color:  #4A4548;
-   border-radius: 8px;
-}
-
-.trash-button:hover {
-   background-color:#4A4548;
-   color:  #fc7753;
-}
-
-.edit-button {
-   border:none;
-   background-color:#50808e;
-   color:#DBD56E;
+.crud-button {
+/*    border: 2px solid #4A4548; */
+   color: #4A4548;
    border-radius: 8px;
    padding: 5px;
-  
+   width: 30px;
+   height: 30px;
+   vertical-align: middle;
+   line-height: 1;
+}
+
+.crud-button a {
+   color: #4A4548;
+}
+button{
+   border: 0px;
+   background-color: transparent;
+}
+
+
+.trash-button:hover {
+   background-color: #fc7753;
+   color: white;  
 }
 
 .edit-button:hover {
-   background-color:#DBD56E;
-   color: #50808e;
-}
-
-.show-button {
-   border:none;
-   background-color: #DBD56E;
-   color:#4A4548;
-   border-radius: 8px;
-   padding: 5px;
-  
+   background-color: #50808e;
+   color: white; 
 }
 
 .show-button:hover {
-   background-color:#4A4548;
-   color: #DBD56E;
+   background-color: #DBD56E;
+   color: white;
+}
+
+hr {
+   color:#50808e;
 }
 
 .table {
    --bs-table-hover-bg: rgba(var(--bs-emphasis-color-rgb), 1) !important;
    --bs-table-color: #4A4548 !important;
    --bs-table-hover-color: #4A4548 !important;
-   border-color: #fc785345 !important;
+   border-color:rgba(80, 128, 142, 0.23) !important;
    --bs-table-hover-bg:  #f2efea !important;
    --bs-border-radius: 10px !important;
 }
@@ -265,7 +264,7 @@ thead.destTable th:nth-child(1) {
 }
 .itinerary-image {
    aspect-ratio: 1/1;
-   border: 1px solid #50808e; 
+   border: 1px solid rgba(80, 128, 142, 0.23); 
    border-radius: 4px;  
    padding: 5px;
    width: 100%; 
