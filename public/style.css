@@ -148,9 +148,10 @@ header {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 10px;
+ /*  margin: 10px; */
   cursor: pointer;
   border-radius: 5px;
+  width: 150px;
 }
 
 .button-brown:hover{
@@ -196,49 +197,6 @@ header {
 .show-button:hover {
    background-color:#4A4548;
    color: #DBD56E;
-}
-
-
-
-/* MEDIA QUERY */
-
-@media (max-width: 992px) {
-   .sidebar {
-       width: 70px;
-       overflow: hidden;
-   }
-   .sidebar .nav-link {
-       font-size: 0; 
-   }
-   
-   .main-content {
-       margin-left: 70px;
-   }
-
-   header {
-      margin-left: 70px;
-   }
-   #logo-ti {
-      width: 60px;
-     
-   }
-   
-   .localities-card {
-      width: calc(100%/2 - 10px);
-   }
-   .nav-item {
-      padding: 8px 0px 8px 8px;
-   }
-
-   .nav-item.uppercase {
-      display: none;
-   }
-}
-
-@media (max-width: 600px) {
-   .localities-card {
-      width: 100%;
-   }
 }
 
 .table {
@@ -297,8 +255,76 @@ thead.destTable th:nth-child(1) {
    width: 180px;
    height: 180px;
 }
+.itinerary-details {
+   display: flex;
+   flex-direction: row;
+}
+.itinerary-image-container{
+   width: 30%;
+   margin-right: 30px;
+}
+.itinerary-image {
+   aspect-ratio: 1/1;
+   border: 1px solid #50808e; 
+   border-radius: 4px;  
+   padding: 5px;
+   width: 100%; 
+   object-fit: cover;
+}
+.itinerary-text {
+   width: 70%;
+}
 
-.ptova th {
-   border-radius: 30px;
-   border: 1px, solid, red;
+/* MEDIA QUERY */
+
+@media (max-width: 992px) {
+   .sidebar {
+       width: 70px;
+       overflow: hidden;
+   }
+   .sidebar .nav-link {
+       font-size: 0; 
+   }
+   
+   .main-content {
+       margin-left: 70px;
+   }
+
+   header {
+      margin-left: 70px;
+   }
+   #logo-ti {
+      width: 60px;
+     
+   }
+   
+   .localities-card {
+      width: calc(100%/2 - 10px);
+   }
+   .nav-item {
+      padding: 8px 0px 8px 8px;
+   }
+
+   .nav-item.uppercase {
+      display: none;
+   }
+
+   .itinerary-details {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .itinerary-image-container {
+      width: 100%;
+   }
+
+   .itinerary-text {
+      width: 100%;
+   }
+}
+
+@media (max-width: 600px) {
+   .localities-card {
+      width: 100%;
+   }
 }

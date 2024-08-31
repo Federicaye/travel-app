@@ -42,6 +42,10 @@ var_dump($itineraryData);
         <textarea class="form-control" id="description" rows="3"
           name="description"><?php echo $itineraryData['itinerary'][0]['description']; ?></textarea>
       </div>
+      <div>
+      <label for="travel_time" class="form-label">Travel time</label>
+      <input type="number" class="form-control" name="travel_time" min="1" max="60" required>
+      </div>
       <div class="mb-3">
         <label for="image" class="form-label">image</label>
         <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
