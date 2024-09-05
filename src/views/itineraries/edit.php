@@ -50,7 +50,7 @@ $day_left = array_diff($travel_days, $scheduled_days);
 <body>
     <?php
     include __DIR__ . '/../sidebar.php';
-    include __DIR__ . '/../header.php';
+   
     ?>
     <div class=" main-content">
 

@@ -27,7 +27,7 @@ var_dump($itineraryData);
   <!-- header -->
   <?php
   include __DIR__ . '/../sidebar.php';
-  include __DIR__ . '/../header.php';
+  
   ?>
   <div class="main-content">
     <h2 class="red">Edit itinerary</h2>

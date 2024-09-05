@@ -27,7 +27,7 @@ $locality = locality::show($id);
 <body>
     <?php
     include __DIR__ . '/../sidebar.php';
-    include __DIR__ . '/../header.php';
+ 
    
     ?>
     <div class="main-content">

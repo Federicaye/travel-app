@@ -68,7 +68,7 @@ if ($uploadOk) {
   }
 
   if (!is_array($response)){
-    header("location: /itinerary?id=" . $response );
+    header("location: /itineraries/show?id=" . $response );
   }
   
  
